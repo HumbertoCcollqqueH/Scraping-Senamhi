@@ -1,0 +1,318 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SENAMHI</title>
+    <link href="../../../../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../../../public/lib/dataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../../../../public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../../public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var dat = '';;
+        if (dat == '') {
+            $('#iframeestatipo').css('display', 'none');
+            $('#iframecaptcha').css('display', 'block');
+
+        } else {
+            $('#iframeestatipo').css('display', 'block');
+            $('#iframecaptcha').css('display', 'none');
+        }
+    </script>
+                <script type="text/javascript">
+                const dataPromedioDiario = [117.185, 117.2275, 117.285, 117.3275, 117.35, 117.36, 117.3825, 117.395, 117.41, 117.435, 117.4575, 117.48, 117.48, 117.47, 117.45, 117.42, 117.4225, 117.365, 117.31, 117.285, 117.2675, 117.26, 117.25, 117.25, 117.24, 117.23, 117.22, 117.22, 117.23, 117.23, 117.2025, ];
+                dataPromedioDiario.forEach((value, index) => {
+                    if (value !== null) {
+                        dataPromedioDiario[index] = Math.round(value * 100) / 100;
+                    }
+                });
+
+                $(function() {
+                    $('#container').highcharts({
+                        title: {
+                            text: 'ESTACI\u00D3N: SEDA LORETO'
+                        },
+                        subtitle: {
+                            text: "Dep.: LORETO Prov.: MAYNAS Dist.: SAN JUAN BAUTISTA<br>Lat.: 3°45'10'' S Long.: 73°16'51.58'' W Alt.: 126 msnm.<br>Tipo: Convencional - Hidrol\u00F3gica<br>C\u00F3digo: 240106"
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: ['2025-05-01','2025-05-02','2025-05-03','2025-05-04','2025-05-05','2025-05-06','2025-05-07','2025-05-08','2025-05-09','2025-05-10','2025-05-11','2025-05-12','2025-05-13','2025-05-14','2025-05-15','2025-05-16','2025-05-17','2025-05-18','2025-05-19','2025-05-20','2025-05-21','2025-05-22','2025-05-23','2025-05-24','2025-05-25','2025-05-26','2025-05-27','2025-05-28','2025-05-29','2025-05-30','2025-05-31',]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Nivel promedio diario (m)'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: ' m'
+                        },
+                        series: [{
+                            name: 'Nivel promedio diario (m)',
+                            data: dataPromedioDiario
+                        }]
+                    });
+                });
+            </script>
+            <script src="../../../../public/lib/highcharts/highcharts-4.1.7.js"></script>
+</head>
+
+
+<!-- EMPIEZA RENDERIZADO -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="grafico-tab" data-toggle="tab" href="#grafico" role="tab" aria-selected="false">Gráfico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tabla-tab" data-toggle="tab" href="#tabla" role="tab" aria-selected="true">Tabla</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade" id="grafico" role="tabpanel">
+                        <div id="container" style="min-width: 300px; height: 300px; margin: 0 auto;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1340px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1340" height="300"><desc>Created with Highcharts 4.1.7</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1240" height="76"></rect></clipPath></defs><rect x="0" y="0" width="1340" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 90 177.5 L 1330 177.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 90 139.5 L 1330 139.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 90 100.5 L 1330 100.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 129.5 177 L 129.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 169.5 177 L 169.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 209.5 177 L 209.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 249.5 177 L 249.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 289.5 177 L 289.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 329.5 177 L 329.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 369.5 177 L 369.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 409.5 177 L 409.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 449.5 177 L 449.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 489.5 177 L 489.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 529.5 177 L 529.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 569.5 177 L 569.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 609.5 177 L 609.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 649.5 177 L 649.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 689.5 177 L 689.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 729.5 177 L 729.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 769.5 177 L 769.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 809.5 177 L 809.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 849.5 177 L 849.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 889.5 177 L 889.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 929.5 177 L 929.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 969.5 177 L 969.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1009.5 177 L 1009.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1049.5 177 L 1049.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1089.5 177 L 1089.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1129.5 177 L 1129.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1169.5 177 L 1169.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1209.5 177 L 1209.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1249.5 177 L 1249.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1289.5 177 L 1289.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1330.5 177 L 1330.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 89.5 177 L 89.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 90 177.5 L 1330 177.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="26.734375" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 26.734375 139)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" visibility="visible" y="139"><tspan>Nivel promedio diario (m)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><path fill="rgba(124,181,236,0.25)" d="M 0 0"></path><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(90,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 20 47.120000000000346 L 60 41.039999999999395 L 100 31.91999999999905 L 140 25.84000000000026 L 180 22.800000000000864 L 220 21.280000000000086 L 260 18.24000000000069 L 300 15.199999999999136 L 340 13.680000000000518 L 380 9.120000000000346 L 420 6.08000000000095 L 460 3.039999999999395 L 500 3.039999999999395 L 540 4.560000000000173 L 580 7.599999999999568 L 620 12.15999999999974 L 660 12.15999999999974 L 700 19.75999999999931 L 740 28.879999999999654 L 780 31.91999999999905 L 820 34.960000000000605 L 860 36.47999999999922 L 900 38 L 940 38 L 980 39.52000000000078 L 1020 41.039999999999395 L 1060 42.56000000000017 L 1100 42.56000000000017 L 1140 41.039999999999395 L 1180 41.039999999999395 L 1220 45.59999999999957" stroke="#7cb5ec" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10 47.120000000000346 L 20 47.120000000000346 L 60 41.039999999999395 L 100 31.91999999999905 L 140 25.84000000000026 L 180 22.800000000000864 L 220 21.280000000000086 L 260 18.24000000000069 L 300 15.199999999999136 L 340 13.680000000000518 L 380 9.120000000000346 L 420 6.08000000000095 L 460 3.039999999999395 L 500 3.039999999999395 L 540 4.560000000000173 L 580 7.599999999999568 L 620 12.15999999999974 L 660 12.15999999999974 L 700 19.75999999999931 L 740 28.879999999999654 L 780 31.91999999999905 L 820 34.960000000000605 L 860 36.47999999999922 L 900 38 L 940 38 L 980 39.52000000000078 L 1020 41.039999999999395 L 1060 42.56000000000017 L 1100 42.56000000000017 L 1140 41.039999999999395 L 1180 41.039999999999395 L 1220 45.59999999999957 L 1230 45.59999999999957" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(90,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#7cb5ec" d="M 1220 41.59999999999957 C 1225.328 41.59999999999957 1225.328 49.59999999999957 1220 49.59999999999957 C 1214.672 49.59999999999957 1214.672 41.59999999999957 1220 41.59999999999957 Z"></path><path fill="#7cb5ec" d="M 1180 37.039999999999395 C 1185.328 37.039999999999395 1185.328 45.039999999999395 1180 45.039999999999395 C 1174.672 45.039999999999395 1174.672 37.039999999999395 1180 37.039999999999395 Z"></path><path fill="#7cb5ec" d="M 1140 37.039999999999395 C 1145.328 37.039999999999395 1145.328 45.039999999999395 1140 45.039999999999395 C 1134.672 45.039999999999395 1134.672 37.039999999999395 1140 37.039999999999395 Z"></path><path fill="#7cb5ec" d="M 1100 38.56000000000017 C 1105.328 38.56000000000017 1105.328 46.56000000000017 1100 46.56000000000017 C 1094.672 46.56000000000017 1094.672 38.56000000000017 1100 38.56000000000017 Z"></path><path fill="#7cb5ec" d="M 1060 38.56000000000017 C 1065.328 38.56000000000017 1065.328 46.56000000000017 1060 46.56000000000017 C 1054.672 46.56000000000017 1054.672 38.56000000000017 1060 38.56000000000017 Z"></path><path fill="#7cb5ec" d="M 1020 37.039999999999395 C 1025.328 37.039999999999395 1025.328 45.039999999999395 1020 45.039999999999395 C 1014.672 45.039999999999395 1014.672 37.039999999999395 1020 37.039999999999395 Z"></path><path fill="#7cb5ec" d="M 980 35.52000000000078 C 985.328 35.52000000000078 985.328 43.52000000000078 980 43.52000000000078 C 974.672 43.52000000000078 974.672 35.52000000000078 980 35.52000000000078 Z"></path><path fill="#7cb5ec" d="M 940 34 C 945.328 34 945.328 42 940 42 C 934.672 42 934.672 34 940 34 Z"></path><path fill="#7cb5ec" d="M 900 34 C 905.328 34 905.328 42 900 42 C 894.672 42 894.672 34 900 34 Z"></path><path fill="#7cb5ec" d="M 860 32.47999999999922 C 865.328 32.47999999999922 865.328 40.47999999999922 860 40.47999999999922 C 854.672 40.47999999999922 854.672 32.47999999999922 860 32.47999999999922 Z"></path><path fill="#7cb5ec" d="M 820 30.960000000000605 C 825.328 30.960000000000605 825.328 38.960000000000605 820 38.960000000000605 C 814.672 38.960000000000605 814.672 30.960000000000605 820 30.960000000000605 Z"></path><path fill="#7cb5ec" d="M 780 27.91999999999905 C 785.328 27.91999999999905 785.328 35.91999999999905 780 35.91999999999905 C 774.672 35.91999999999905 774.672 27.91999999999905 780 27.91999999999905 Z"></path><path fill="#7cb5ec" d="M 740 24.879999999999654 C 745.328 24.879999999999654 745.328 32.879999999999654 740 32.879999999999654 C 734.672 32.879999999999654 734.672 24.879999999999654 740 24.879999999999654 Z"></path><path fill="#7cb5ec" d="M 700 15.759999999999309 C 705.328 15.759999999999309 705.328 23.75999999999931 700 23.75999999999931 C 694.672 23.75999999999931 694.672 15.759999999999309 700 15.759999999999309 Z"></path><path fill="#7cb5ec" d="M 660 8.15999999999974 C 665.328 8.15999999999974 665.328 16.15999999999974 660 16.15999999999974 C 654.672 16.15999999999974 654.672 8.15999999999974 660 8.15999999999974 Z"></path><path fill="#7cb5ec" d="M 620 8.15999999999974 C 625.328 8.15999999999974 625.328 16.15999999999974 620 16.15999999999974 C 614.672 16.15999999999974 614.672 8.15999999999974 620 8.15999999999974 Z"></path><path fill="#7cb5ec" d="M 580 3.599999999999568 C 585.328 3.599999999999568 585.328 11.599999999999568 580 11.599999999999568 C 574.672 11.599999999999568 574.672 3.599999999999568 580 3.599999999999568 Z"></path><path fill="#7cb5ec" d="M 540 0.5600000000001728 C 545.328 0.5600000000001728 545.328 8.560000000000173 540 8.560000000000173 C 534.672 8.560000000000173 534.672 0.5600000000001728 540 0.5600000000001728 Z"></path><path fill="#7cb5ec" d="M 500 -0.9600000000006048 C 505.328 -0.9600000000006048 505.328 7.039999999999395 500 7.039999999999395 C 494.672 7.039999999999395 494.672 -0.9600000000006048 500 -0.9600000000006048 Z"></path><path fill="#7cb5ec" d="M 460 -0.9600000000006048 C 465.328 -0.9600000000006048 465.328 7.039999999999395 460 7.039999999999395 C 454.672 7.039999999999395 454.672 -0.9600000000006048 460 -0.9600000000006048 Z"></path><path fill="#7cb5ec" d="M 420 2.0800000000009504 C 425.328 2.0800000000009504 425.328 10.08000000000095 420 10.08000000000095 C 414.672 10.08000000000095 414.672 2.0800000000009504 420 2.0800000000009504 Z"></path><path fill="#7cb5ec" d="M 380 5.120000000000346 C 385.328 5.120000000000346 385.328 13.120000000000346 380 13.120000000000346 C 374.672 13.120000000000346 374.672 5.120000000000346 380 5.120000000000346 Z"></path><path fill="#7cb5ec" d="M 340 9.680000000000518 C 345.328 9.680000000000518 345.328 17.68000000000052 340 17.68000000000052 C 334.672 17.68000000000052 334.672 9.680000000000518 340 9.680000000000518 Z"></path><path fill="#7cb5ec" d="M 300 11.199999999999136 C 305.328 11.199999999999136 305.328 19.199999999999136 300 19.199999999999136 C 294.672 19.199999999999136 294.672 11.199999999999136 300 11.199999999999136 Z"></path><path fill="#7cb5ec" d="M 260 14.240000000000691 C 265.328 14.240000000000691 265.328 22.24000000000069 260 22.24000000000069 C 254.672 22.24000000000069 254.672 14.240000000000691 260 14.240000000000691 Z"></path><path fill="#7cb5ec" d="M 220 17.280000000000086 C 225.328 17.280000000000086 225.328 25.280000000000086 220 25.280000000000086 C 214.672 25.280000000000086 214.672 17.280000000000086 220 17.280000000000086 Z"></path><path fill="#7cb5ec" d="M 180 18.800000000000864 C 185.328 18.800000000000864 185.328 26.800000000000864 180 26.800000000000864 C 174.672 26.800000000000864 174.672 18.800000000000864 180 18.800000000000864 Z" stroke-width="1"></path><path fill="#7cb5ec" d="M 140 21.84000000000026 C 145.328 21.84000000000026 145.328 29.84000000000026 140 29.84000000000026 C 134.672 29.84000000000026 134.672 21.84000000000026 140 21.84000000000026 Z"></path><path fill="#7cb5ec" d="M 100 27.91999999999905 C 105.328 27.91999999999905 105.328 35.91999999999905 100 35.91999999999905 C 94.672 35.91999999999905 94.672 27.91999999999905 100 27.91999999999905 Z"></path><path fill="#7cb5ec" d="M 60 37.039999999999395 C 65.328 37.039999999999395 65.328 45.039999999999395 60 45.039999999999395 C 54.672 45.039999999999395 54.672 37.039999999999395 60 37.039999999999395 Z"></path><path fill="#7cb5ec" d="M 20 43.120000000000346 C 25.328 43.120000000000346 25.328 51.120000000000346 20 51.120000000000346 C 14.672 51.120000000000346 14.672 43.120000000000346 20 43.120000000000346 Z"></path></g></g><text x="670" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1276px;" y="24"><tspan>ESTACIÓN: SEDA LORETO</tspan></text><text x="670" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1276px;" y="41"><tspan>Dep.: LORETO Prov.: MAYNAS Dist.: SAN JUAN BAUTISTA</tspan><tspan x="670" dy="14">Lat.: 3°45'10'' S Long.: 73°16'51.58'' W Alt.: 126 msnm.</tspan><tspan x="670" dy="14">Tipo: Convencional - Hidrológica</tspan><tspan x="670" dy="14">Código: 240106</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(582,257)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#7cb5ec" stroke-width="2"></path><path fill="#7cb5ec" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.6719999999999997 15 2.6719999999999997 7 8 7 Z"></path><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15"><tspan>Nivel promedio diario (m)</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="112.59272486435069" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 112.59272486435069 193)" y="193" opacity="1"><tspan>2025-05-01</tspan></text><text x="152.59272486435069" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 152.59272486435069 193)" y="193" opacity="1"><tspan>2025-05-02</tspan></text><text x="192.59272486435069" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 192.59272486435069 193)" y="193" opacity="1"><tspan>2025-05-03</tspan></text><text x="232.59272486435069" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 232.59272486435069 193)" y="193" opacity="1"><tspan>2025-05-04</tspan></text><text x="272.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 272.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-05</tspan></text><text x="312.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 312.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-06</tspan></text><text x="352.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 352.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-07</tspan></text><text x="392.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 392.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-08</tspan></text><text x="432.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 432.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-09</tspan></text><text x="472.59272486435066" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 472.59272486435066 193)" y="193" opacity="1"><tspan>2025-05-10</tspan></text><text x="512.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 512.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-11</tspan></text><text x="552.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 552.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-12</tspan></text><text x="592.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 592.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-13</tspan></text><text x="632.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 632.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-14</tspan></text><text x="672.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 672.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-15</tspan></text><text x="712.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 712.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-16</tspan></text><text x="752.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 752.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-17</tspan></text><text x="792.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 792.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-18</tspan></text><text x="832.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 832.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-19</tspan></text><text x="872.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 872.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-20</tspan></text><text x="912.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 912.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-21</tspan></text><text x="952.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 952.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-22</tspan></text><text x="992.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 992.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-23</tspan></text><text x="1032.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1032.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-24</tspan></text><text x="1072.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1072.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-25</tspan></text><text x="1112.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1112.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-26</tspan></text><text x="1152.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1152.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-27</tspan></text><text x="1192.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1192.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-28</tspan></text><text x="1232.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1232.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-29</tspan></text><text x="1272.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1272.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-30</tspan></text><text x="1312.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1312.5927248643507 193)" y="193" opacity="1"><tspan>2025-05-31</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="75" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="180" opacity="1">117</text><text x="75" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="142" opacity="1">117.25</text><text x="75" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="104" opacity="1">117.5</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(158,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 221.5 0.5 C 224.5 0.5 224.5 0.5 224.5 3.5 L 224.5 44.5 C 224.5 47.5 224.5 47.5 221.5 47.5 L 117.5 47.5 111.5 53.5 105.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="224" height="47"></path><path fill="none" d="M 3.5 0.5 L 221.5 0.5 C 224.5 0.5 224.5 0.5 224.5 3.5 L 224.5 44.5 C 224.5 47.5 224.5 47.5 221.5 47.5 L 117.5 47.5 111.5 53.5 105.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="224" height="47"></path><path fill="none" d="M 3.5 0.5 L 221.5 0.5 C 224.5 0.5 224.5 0.5 224.5 3.5 L 224.5 44.5 C 224.5 47.5 224.5 47.5 221.5 47.5 L 117.5 47.5 111.5 53.5 105.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="224" height="47"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 221.5 0.5 C 224.5 0.5 224.5 0.5 224.5 3.5 L 224.5 44.5 C 224.5 47.5 224.5 47.5 221.5 47.5 L 117.5 47.5 111.5 53.5 105.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#7cb5ec" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"><tspan style="font-size: 10px">2025-05-05</tspan><tspan style="fill:#7cb5ec" x="8" dy="14">●</tspan><tspan dx="0"> Nivel promedio diario (m): </tspan><tspan style="font-weight:bold" dx="0">117.35 m</tspan></text></g></svg></div></div>
+                    </div>
+
+                    <div class="tab-pane fade active show" id="tabla" role="tabpanel">
+                        <div id="captcha-section" style="display: none;">
+                            <div class="alert alert-info mt-3" role="alert">
+                                Por favor, verifica que no eres un robot para continuar.
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB2uOxvM6ouZ9Hqw" data-theme="light" data-size="normal" data-callback="onCaptchaSuccess">
+                            <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-dysoi_response" value="1.dkEYBDgbbVaWugpe22wevyi0pwTkHqEF53OTQKaiMU6rdquaj8K1QFazInH3KTwqq95rkahp8V4jsFay-vreRJwfZF-7oQa76SHlPo3Epr0zknMCxePepdzvgZFhVbE72yPtYYeeqi01FIpGyqZdbUqE3tEC84Zi8jIgE-xBhYag56zOwed48Oegq8VNU977yqkGYfXINyyDCG67URDn0OVw0nlq5Ay6CT8D0vtyvLEDOlLWS-BlC94whMpR-0E14jBzasl4W_IIJesusjB0qNYfBtCb_IAHnRkdmkWEFaaw80Pn7smIoWXjQGquGyhtH810Xqq85sxzUImOXbc3C5vyjaB9r50uQNicEUngWQVGVmh7Kxb1zy-X7gsUeVolyKIduQ_IPtPtFU_aXWHbF7yOk9P3UQrUrzIKCHSVIguY1xT0cQmA4YlaaB1xCFse.tper47FsSzFJffcT3x-f0A.204ed0f5665e878503ae751f401e4c781c1175fdc5fc1def04e19b10e66944eb"></div></div>
+                        </div>
+
+                        <div id="data-section" style="">
+                            <form name="frmData" id="frmData" method="post" action="__dt_est_tp_0s3n@mH1.php" target="contenedor">
+                                <table width="750" border="0" class="body01" bordercolor="#999999" cellpadding="1" cellspacing="1" align="center">
+                                    <tbody><tr>
+                                        <td colspan="7" height="5"></td>
+                                    </tr>
+                                    <tr aling="center" bgcolor="#003366">
+                                        <td colspan="7" bgcolor="#666666">
+                                            <div align="center">
+                                                <b>
+                                                    <font color="#F4F4F4">Estación
+                                                        : SEDA LORETO                                                    </font>
+                                                </b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Departamento&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>LORETO</td>
+                                        <td>
+                                            <div align="right">Provincia&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> MAYNAS</td>
+                                        <td>
+                                            <div align="right">Distrito&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> SAN JUAN BAUTISTA</td>
+                                        <td>
+                                            <div align="center">
+                                                Ir : <select name="CBOFiltro" id="CBOFiltro" class="dire" onchange="javascript:submit()"><option value="201810" selected="">2018-10</option>
+<option value="201811" selected="">2018-11</option>
+<option value="201812" selected="">2018-12</option>
+<option value="201901" selected="">2019-01</option>
+<option value="201902" selected="">2019-02</option>
+<option value="201903" selected="">2019-03</option>
+<option value="201904" selected="">2019-04</option>
+<option value="201905" selected="">2019-05</option>
+<option value="201906" selected="">2019-06</option>
+<option value="201907" selected="">2019-07</option>
+<option value="201908" selected="">2019-08</option>
+<option value="201909" selected="">2019-09</option>
+<option value="201910" selected="">2019-10</option>
+<option value="201911" selected="">2019-11</option>
+<option value="201912" selected="">2019-12</option>
+<option value="202001" selected="">2020-01</option>
+<option value="202002" selected="">2020-02</option>
+<option value="202003" selected="">2020-03</option>
+<option value="202004" selected="">2020-04</option>
+<option value="202005" selected="">2020-05</option>
+<option value="202006" selected="">2020-06</option>
+<option value="202007" selected="">2020-07</option>
+<option value="202008" selected="">2020-08</option>
+<option value="202009" selected="">2020-09</option>
+<option value="202010" selected="">2020-10</option>
+<option value="202011" selected="">2020-11</option>
+<option value="202012" selected="">2020-12</option>
+<option value="202101" selected="">2021-01</option>
+<option value="202102" selected="">2021-02</option>
+<option value="202103" selected="">2021-03</option>
+<option value="202104" selected="">2021-04</option>
+<option value="202105" selected="">2021-05</option>
+<option value="202106" selected="">2021-06</option>
+<option value="202107" selected="">2021-07</option>
+<option value="202108" selected="">2021-08</option>
+<option value="202109" selected="">2021-09</option>
+<option value="202110" selected="">2021-10</option>
+<option value="202111" selected="">2021-11</option>
+<option value="202112" selected="">2021-12</option>
+<option value="202201" selected="">2022-01</option>
+<option value="202202" selected="">2022-02</option>
+<option value="202203" selected="">2022-03</option>
+<option value="202204" selected="">2022-04</option>
+<option value="202205" selected="">2022-05</option>
+<option value="202308" selected="">2023-08</option>
+<option value="202309" selected="">2023-09</option>
+<option value="202310" selected="">2023-10</option>
+<option value="202311" selected="">2023-11</option>
+<option value="202312" selected="">2023-12</option>
+<option value="202402" selected="">2024-02</option>
+<option value="202403" selected="">2024-03</option>
+<option value="202404" selected="">2024-04</option>
+<option value="202405" selected="">2024-05</option>
+<option value="202406" selected="">2024-06</option>
+<option value="202407" selected="">2024-07</option>
+<option value="202408" selected="">2024-08</option>
+<option value="202409" selected="">2024-09</option>
+<option value="202503" selected="">2025-03</option>
+<option value="202504" selected="">2025-04</option>
+<option value="202505" selected="">2025-05</option>
+</select>                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Latitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>3°45'10'' S </td>
+                                        <td>
+                                            <div align="right">Longitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>73°16'51.58'' W </td>
+                                        <td>
+                                            <div align="right">Altitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>126 msnm.</td>
+
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Tipo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>Convencional - Hidrológica</td>
+                                        <td>
+                                            <div align="right">Codigo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>240106</td>
+                                        <td>
+                                            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="1.dkEYBDgbbVaWugpe22wevyi0pwTkHqEF53OTQKaiMU6rdquaj8K1QFazInH3KTwqq95rkahp8V4jsFay-vreRJwfZF-7oQa76SHlPo3Epr0zknMCxePepdzvgZFhVbE72yPtYYeeqi01FIpGyqZdbUqE3tEC84Zi8jIgE-xBhYag56zOwed48Oegq8VNU977yqkGYfXINyyDCG67URDn0OVw0nlq5Ay6CT8D0vtyvLEDOlLWS-BlC94whMpR-0E14jBzasl4W_IIJesusjB0qNYfBtCb_IAHnRkdmkWEFaaw80Pn7smIoWXjQGquGyhtH810Xqq85sxzUImOXbc3C5vyjaB9r50uQNicEUngWQVGVmh7Kxb1zy-X7gsUeVolyKIduQ_IPtPtFU_aXWHbF7yOk9P3UQrUrzIKCHSVIguY1xT0cQmA4YlaaB1xCFse.tper47FsSzFJffcT3x-f0A.204ed0f5665e878503ae751f401e4c781c1175fdc5fc1def04e19b10e66944eb">
+                                            <input name="estaciones" id="estaciones" type="hidden" value="240106">
+                                            <input name="t_e" id="t_e" type="hidden" value="H">
+                                            <input name="estado" id="estado" type="hidden" value="DIFERIDO">
+                                            <input name="cod_old" id="cod_old" type="hidden" value="240105">
+                                            <input name="cate_esta" id="cate_esta" type="hidden" value="HLM">
+                                            <input name="soloAlt" id="soloAlt" type="hidden" value="126">
+                                        </td>
+
+                                    </tr>
+                                </tbody></table>
+                                <table width="450" align="center">
+                                    <tbody><tr>
+                                        <td>
+                                            <div id="frame">
+                                                <iframe id="contenedor" name="contenedor" width="750" marginwidth="0" height="900" marginheight="0" scrolling="YES" align="center" frameborder="0" cd_frame_id_="f7b900af0703f0f0e86696b3dc13dd9f">
+                                                </iframe>
+                                            </div>
+                                        </td>
+                                    </tr><tr>
+                                </tr></tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script>
+        function onCaptchaSuccess(token) {
+            document.getElementById("cf-turnstile-response").value = token;
+
+            $('#captcha-section').hide();
+            $('#data-section').show();
+
+            document.getElementById("frmData").submit();
+        }
+
+        function loadStationData(token) {
+            var iframe = document.getElementById("contenedor");
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "__dt_est_tp_0s3n@mH1.php");
+
+            var inputToken = document.createElement("input");
+            inputToken.setAttribute("type", "hidden");
+            inputToken.setAttribute("name", "cf-turnstile-response");
+            inputToken.setAttribute("value", token);
+            form.appendChild(inputToken);
+
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "estaciones");
+            input1.setAttribute("value", '240106');
+            form.appendChild(input1);
+
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            input2.setAttribute("name", "CBOFiltro");
+            input2.setAttribute("value", '202505');
+            form.appendChild(input2);
+
+            var input3 = document.createElement("input");
+            input3.setAttribute("type", "text");
+            input3.setAttribute("name", "t_e");
+            input3.setAttribute("value", 'H');
+            form.appendChild(input3);
+
+            var input4 = document.createElement("input");
+            input4.setAttribute("type", "text");
+            input4.setAttribute("name", "estado");
+            input4.setAttribute("value", 'DIFERIDO');
+            form.appendChild(input4);
+
+            var input5 = document.createElement("input");
+            input5.setAttribute("type", "text");
+            input5.setAttribute("name", "cod_old");
+            input5.setAttribute("value", '240105');
+            form.appendChild(input5);
+
+            var input6 = document.createElement("input");
+            input6.setAttribute("type", "text");
+            input6.setAttribute("name", "cod_old");
+            input6.setAttribute("value", 'HLM');
+            form.appendChild(input6);
+
+            var input7 = document.createElement("input");
+            input7.setAttribute("type", "text");
+            input7.setAttribute("name", "alt");
+            input7.setAttribute("value", '126');
+            form.appendChild(input7);
+
+            iframe.contentDocument.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+
+</body></html>

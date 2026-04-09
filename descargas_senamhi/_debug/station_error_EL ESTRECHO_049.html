@@ -1,0 +1,374 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SENAMHI</title>
+    <link href="../../../../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../../../public/lib/dataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../../../../public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../../public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var dat = '';;
+        if (dat == '') {
+            $('#iframeestatipo').css('display', 'none');
+            $('#iframecaptcha').css('display', 'block');
+
+        } else {
+            $('#iframeestatipo').css('display', 'block');
+            $('#iframecaptcha').css('display', 'none');
+        }
+    </script>
+            
+            <script type="text/javascript">
+                $(function() {
+                    console.log("Data1 (Temp):", [33, 34.8, 35, null, 32.6, 32, 34.6, 33.8, 33.2, 32.6, null, 31.6, 32.8, 29.8, 32.6, 26.4, 30.2, null, 30.2, 33.2, 34, 31.4, 31.6, 35.2, null, 34.8, 32.2, 33.2, 32.6, 32.2, 33.2, ]);
+                    console.log("Data2 (Temp):", [21.4, 21.8, 21.2, null, 22, 23, 23.2, 24, 23.2, 22.4, null, 22.8, 23.6, 23.6, 23.4, null, 22.6, null, 22.2, 22.6, 22.4, 23.8, 24.4, 22.8, null, 23.4, 23.2, 22.2, 22.2, 23.2, 22.8, ]);
+                    console.log("Data3 (Precip):", [47.0, 8.2, null, null, 16.1, 16.6, 0.0, 27.0, 24.9, null, null, 2.4, 18.6, 17.5, 19.3, 8.2, null, null, 0.8, 0.3, 5.9, 22.0, 2.0, null, null, 3.6, 7.2, 21.6, 6.6, 0.8, 2.9, ]);
+                    $('#container').highcharts({
+                        chart: {
+                            zoomType: 'xy'
+                        },
+                        title: {
+                            text: 'ESTACI\u00D3N: EL ESTRECHO'
+                        },
+                        subtitle: {
+                            text: "Dep.: LORETO Prov.: PUTUMAYO Dist.: PUTUMAYO<br>Lat.: 2°26'47.94'' S Long.: 72°39'51.61'' W Alt.: 110 msnm.<br>Tipo: Convencional - Meteorol\u00F3gica<br>C\u00F3digo: 102006",
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: [{
+                            categories: ['2026-01-01','2026-01-02','2026-01-03','2026-01-04','2026-01-05','2026-01-06','2026-01-07','2026-01-08','2026-01-09','2026-01-10','2026-01-11','2026-01-12','2026-01-13','2026-01-14','2026-01-15','2026-01-16','2026-01-17','2026-01-18','2026-01-19','2026-01-20','2026-01-21','2026-01-22','2026-01-23','2026-01-24','2026-01-25','2026-01-26','2026-01-27','2026-01-28','2026-01-29','2026-01-30','2026-01-31',],
+                            crosshair: true
+                        }],
+                        yAxis: [{
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: Highcharts.getOptions().colors[1]
+                                }
+                            },
+                            title: {
+                                text: '<b>Temperatura</b> (\u00B0C)',
+                                style: {
+                                    color: Highcharts.getOptions().colors[1]
+                                }
+                            }
+                        }, {
+                            title: {
+                                text: '<b>Precipitaci\u00F3n</b> (mm/d\u00EDa)',
+                                style: {
+                                    color: Highcharts.getOptions().colors[0]
+                                },
+                                rotation: 270
+                            },
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: Highcharts.getOptions().colors[0]
+                                }
+                            },
+                            opposite: true
+                        }],
+                        tooltip: {
+                            shared: true
+                        },
+                        series: [{
+                            name: 'Precipitaci\u00F3n',
+                            type: 'column',
+                            yAxis: 1,
+                            data: [47.0, 8.2, null, null, 16.1, 16.6, 0.0, 27.0, 24.9, null, null, 2.4, 18.6, 17.5, 19.3, 8.2, null, null, 0.8, 0.3, 5.9, 22.0, 2.0, null, null, 3.6, 7.2, 21.6, 6.6, 0.8, 2.9, ],
+                            tooltip: {
+                                valueSuffix: ' mm'
+                            }
+
+                        }, {
+                            name: 'Temp. max',
+                            lineWidth: 1,
+                            type: 'spline',
+                            marker: {
+                                radius: 2,
+                                fillColor: 'white',
+                                lineWidth: 2,
+                                lineColor: 'red'
+                            },
+                            color: 'rgba(247,10,08, .9)',
+                            data: [33, 34.8, 35, null, 32.6, 32, 34.6, 33.8, 33.2, 32.6, null, 31.6, 32.8, 29.8, 32.6, 26.4, 30.2, null, 30.2, 33.2, 34, 31.4, 31.6, 35.2, null, 34.8, 32.2, 33.2, 32.6, 32.2, 33.2, ],
+                            tooltip: {
+                                valueSuffix: '\u00B0C'
+                            }
+                        }, {
+                            name: 'Temp. min',
+                            lineWidth: 1,
+                            type: 'spline',
+                            marker: {
+                                radius: 2,
+                                fillColor: 'white',
+                                lineWidth: 2,
+                                lineColor: 'blue'
+                            },
+                            color: 'rgba(48,69,232,.9)',
+                            data: [21.4, 21.8, 21.2, null, 22, 23, 23.2, 24, 23.2, 22.4, null, 22.8, 23.6, 23.6, 23.4, null, 22.6, null, 22.2, 22.6, 22.4, 23.8, 24.4, 22.8, null, 23.4, 23.2, 22.2, 22.2, 23.2, 22.8, ],
+                            tooltip: {
+                                valueSuffix: '\u00B0C'
+                            }
+                        }]
+                    });
+                });
+            </script>
+            <script src="../../../../public/lib/highcharts/highcharts-4.1.7.js"></script>
+</head>
+
+
+<!-- EMPIEZA RENDERIZADO -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="grafico-tab" data-toggle="tab" href="#grafico" role="tab" aria-selected="false">Gráfico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tabla-tab" data-toggle="tab" href="#tabla" role="tab" aria-selected="true">Tabla</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade" id="grafico" role="tabpanel">
+                        <div id="container" style="min-width: 300px; height: 300px; margin: 0 auto;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1340px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1340" height="300"><desc>Created with Highcharts 4.1.7</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1208" height="75"></rect></clipPath></defs><rect x="0" y="0" width="1340" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 66 176.5 L 1274 176.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 139.5 L 1274 139.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 100.5 L 1274 100.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 66 176.5 L 1274 176.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 139.5 L 1274 139.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 100.5 L 1274 100.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 104.5 176 L 104.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 143.5 176 L 143.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 182.5 176 L 182.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 221.5 176 L 221.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 260.5 176 L 260.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 299.5 176 L 299.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 338.5 176 L 338.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 377.5 176 L 377.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 416.5 176 L 416.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 455.5 176 L 455.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 494.5 176 L 494.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 533.5 176 L 533.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 572.5 176 L 572.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 611.5 176 L 611.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 650.5 176 L 650.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 688.5 176 L 688.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 727.5 176 L 727.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 766.5 176 L 766.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 805.5 176 L 805.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 844.5 176 L 844.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 883.5 176 L 883.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 922.5 176 L 922.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 961.5 176 L 961.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1000.5 176 L 1000.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1039.5 176 L 1039.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1078.5 176 L 1078.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1117.5 176 L 1117.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1156.5 176 L 1156.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1195.5 176 L 1195.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1234.5 176 L 1234.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1274.5 176 L 1274.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 65.5 176 L 65.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 66 176.5 L 1274 176.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="27.04443359375" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 27.04443359375 138.5)" class=" highcharts-yaxis-title" style="color:#434348;fill:#434348;" visibility="visible" y="138.5"><tspan style="font-weight:bold">Temperatura</tspan><tspan dx="0"> (°C)</tspan></text></g><g class="highcharts-axis" zIndex="2"><text x="1312.95556640625" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 1312.95556640625 138.5)" class=" highcharts-yaxis-title" style="color:#7cb5ec;fill:#7cb5ec;" visibility="visible" y="138.5"><tspan style="font-weight:bold">Precipitación</tspan><tspan dx="0"> (mm/día)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" style="" clip-path="url(#highcharts-1)"><rect x="9.5" y="31.5" width="19" height="44" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="48.5" y="67.5" width="19" height="8" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="165.5" y="60.5" width="19" height="15" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="204.5" y="59.5" width="19" height="16" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="243.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="282.5" y="50.5" width="19" height="25" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="321.5" y="52.5" width="19" height="23" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="438.5" y="73.5" width="19" height="2" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="477.5" y="58.5" width="19" height="17" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="516.5" y="59.5" width="19" height="16" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="555.5" y="57.5" width="19" height="18" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="594.5" y="67.5" width="19" height="8" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="711.5" y="74.5" width="19" height="1" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="750.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="788.5" y="69.5" width="19" height="6" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="827.5" y="54.5" width="19" height="21" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="866.5" y="73.5" width="19" height="2" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="983.5" y="72.5" width="19" height="3" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1022.5" y="68.5" width="19" height="7" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1061.5" y="55.5" width="19" height="20" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1100.5" y="69.5" width="19" height="6" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1139.5" y="74.5" width="19" height="1" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1178.5" y="72.5" width="19" height="3" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" clip-path="none"></g><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 19.483870967741936 26.25 C 19.483870967741936 26.25 42.86451612903226 20.25000000000003 58.45161290322581 19.500000000000014 C 74.03870967741936 18.75 97.41935483870968 18.75 97.41935483870968 18.75 M 175.35483870967744 27.749999999999993 C 175.35483870967744 27.749999999999993 198.73548387096776 30 214.32258064516128 30 C 229.90967741935484 30 237.7032258064516 20.249999999999993 253.29032258064518 20.249999999999993 C 268.8774193548387 20.249999999999993 276.6709677419355 22.200000000000017 292.258064516129 23.250000000000014 C 307.8451612903226 24.300000000000015 315.63870967741934 24.59999999999999 331.2258064516129 25.499999999999986 C 346.8129032258065 26.39999999999998 370.1935483870968 27.749999999999993 370.1935483870968 27.749999999999993 M 448.1290322580645 31.499999999999993 C 448.1290322580645 31.499999999999993 471.50967741935494 27.000000000000014 487.0967741935484 27.000000000000014 C 502.68387096774205 27.000000000000014 510.47741935483884 38.25 526.0645161290323 38.25 C 541.6516129032259 38.25 549.4451612903225 27.749999999999993 565.0322580645161 27.749999999999993 C 580.6193548387097 27.749999999999993 588.4129032258064 51.00000000000001 604 51.00000000000001 C 619.5870967741936 51.00000000000001 642.9677419354839 36.75 642.9677419354839 36.75 M 720.9032258064517 36.75 C 720.9032258064517 36.75 744.2838709677419 28.349999999999994 759.8709677419355 25.499999999999986 C 775.458064516129 22.649999999999995 783.2516129032258 22.5 798.8387096774194 22.5 C 814.4258064516129 22.5 822.2193548387097 32.25000000000001 837.8064516129033 32.25000000000001 C 853.3935483870968 32.25000000000001 861.1870967741936 32.25000000000001 876.7741935483871 31.499999999999993 C 892.3612903225807 30.74999999999998 915.741935483871 17.999999999999986 915.741935483871 17.999999999999986 M 993.6774193548388 19.500000000000014 C 993.6774193548388 19.500000000000014 1017.0580645161292 29.249999999999986 1032.6451612903227 29.249999999999986 C 1048.2322580645164 29.249999999999986 1056.0258064516129 25.499999999999986 1071.6129032258066 25.499999999999986 C 1087.2 25.499999999999986 1094.9935483870968 26.999999999999993 1110.5806451612902 27.749999999999993 C 1126.1677419354837 28.499999999999993 1133.9612903225807 29.249999999999986 1149.5483870967741 29.249999999999986 C 1165.1354838709678 29.249999999999986 1188.516129032258 25.499999999999986 1188.516129032258 25.499999999999986" stroke="rgba(247,10,08, .9)" stroke-width="1" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 9.483870967741936 26.25 L 19.483870967741936 26.25 C 19.483870967741936 26.25 42.86451612903226 20.25000000000003 58.45161290322581 19.500000000000014 C 74.03870967741936 18.75 97.41935483870968 18.75 97.41935483870968 18.75 L 107.41935483870968 18.75 M 165.35483870967744 27.749999999999993 L 175.35483870967744 27.749999999999993 C 175.35483870967744 27.749999999999993 198.73548387096776 30 214.32258064516128 30 C 229.90967741935484 30 237.7032258064516 20.249999999999993 253.29032258064518 20.249999999999993 C 268.8774193548387 20.249999999999993 276.6709677419355 22.200000000000017 292.258064516129 23.250000000000014 C 307.8451612903226 24.300000000000015 315.63870967741934 24.59999999999999 331.2258064516129 25.499999999999986 C 346.8129032258065 26.39999999999998 370.1935483870968 27.749999999999993 370.1935483870968 27.749999999999993 L 380.1935483870968 27.749999999999993 M 438.1290322580645 31.499999999999993 L 448.1290322580645 31.499999999999993 C 448.1290322580645 31.499999999999993 471.50967741935494 27.000000000000014 487.0967741935484 27.000000000000014 C 502.68387096774205 27.000000000000014 510.47741935483884 38.25 526.0645161290323 38.25 C 541.6516129032259 38.25 549.4451612903225 27.749999999999993 565.0322580645161 27.749999999999993 C 580.6193548387097 27.749999999999993 588.4129032258064 51.00000000000001 604 51.00000000000001 C 619.5870967741936 51.00000000000001 642.9677419354839 36.75 642.9677419354839 36.75 L 652.9677419354839 36.75 M 710.9032258064517 36.75 L 720.9032258064517 36.75 C 720.9032258064517 36.75 744.2838709677419 28.349999999999994 759.8709677419355 25.499999999999986 C 775.458064516129 22.649999999999995 783.2516129032258 22.5 798.8387096774194 22.5 C 814.4258064516129 22.5 822.2193548387097 32.25000000000001 837.8064516129033 32.25000000000001 C 853.3935483870968 32.25000000000001 861.1870967741936 32.25000000000001 876.7741935483871 31.499999999999993 C 892.3612903225807 30.74999999999998 915.741935483871 17.999999999999986 915.741935483871 17.999999999999986 L 925.741935483871 17.999999999999986 M 983.6774193548388 19.500000000000014 L 993.6774193548388 19.500000000000014 C 993.6774193548388 19.500000000000014 1017.0580645161292 29.249999999999986 1032.6451612903227 29.249999999999986 C 1048.2322580645164 29.249999999999986 1056.0258064516129 25.499999999999986 1071.6129032258066 25.499999999999986 C 1087.2 25.499999999999986 1094.9935483870968 26.999999999999993 1110.5806451612902 27.749999999999993 C 1126.1677419354837 28.499999999999993 1133.9612903225807 29.249999999999986 1149.5483870967741 29.249999999999986 C 1165.1354838709678 29.249999999999986 1188.516129032258 25.499999999999986 1188.516129032258 25.499999999999986 L 1198.516129032258 25.499999999999986" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="white" d="M 1188 23.499999999999986 C 1190.664 23.499999999999986 1190.664 27.499999999999986 1188 27.499999999999986 C 1185.336 27.499999999999986 1185.336 23.499999999999986 1188 23.499999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 1149 27.249999999999986 C 1151.664 27.249999999999986 1151.664 31.249999999999986 1149 31.249999999999986 C 1146.336 31.249999999999986 1146.336 27.249999999999986 1149 27.249999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 1110 25.749999999999993 C 1112.664 25.749999999999993 1112.664 29.749999999999993 1110 29.749999999999993 C 1107.336 29.749999999999993 1107.336 25.749999999999993 1110 25.749999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 1071 23.499999999999986 C 1073.664 23.499999999999986 1073.664 27.499999999999986 1071 27.499999999999986 C 1068.336 27.499999999999986 1068.336 23.499999999999986 1071 23.499999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 1032 27.249999999999986 C 1034.664 27.249999999999986 1034.664 31.249999999999986 1032 31.249999999999986 C 1029.336 31.249999999999986 1029.336 27.249999999999986 1032 27.249999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 993 17.500000000000014 C 995.664 17.500000000000014 995.664 21.500000000000014 993 21.500000000000014 C 990.336 21.500000000000014 990.336 17.500000000000014 993 17.500000000000014 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 915 15.999999999999986 C 917.664 15.999999999999986 917.664 19.999999999999986 915 19.999999999999986 C 912.336 19.999999999999986 912.336 15.999999999999986 915 15.999999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 876 29.499999999999993 C 878.664 29.499999999999993 878.664 33.49999999999999 876 33.49999999999999 C 873.336 33.49999999999999 873.336 29.499999999999993 876 29.499999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 837 30.250000000000007 C 839.664 30.250000000000007 839.664 34.25000000000001 837 34.25000000000001 C 834.336 34.25000000000001 834.336 30.250000000000007 837 30.250000000000007 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 798 20.5 C 800.664 20.5 800.664 24.5 798 24.5 C 795.336 24.5 795.336 20.5 798 20.5 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 759 23.499999999999986 C 761.664 23.499999999999986 761.664 27.499999999999986 759 27.499999999999986 C 756.336 27.499999999999986 756.336 23.499999999999986 759 23.499999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 720 34.75 C 722.664 34.75 722.664 38.75 720 38.75 C 717.336 38.75 717.336 34.75 720 34.75 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 642 34.75 C 644.664 34.75 644.664 38.75 642 38.75 C 639.336 38.75 639.336 34.75 642 34.75 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 604 49.00000000000001 C 606.664 49.00000000000001 606.664 53.00000000000001 604 53.00000000000001 C 601.336 53.00000000000001 601.336 49.00000000000001 604 49.00000000000001 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 565 25.749999999999993 C 567.664 25.749999999999993 567.664 29.749999999999993 565 29.749999999999993 C 562.336 29.749999999999993 562.336 25.749999999999993 565 25.749999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 526 36.25 C 528.664 36.25 528.664 40.25 526 40.25 C 523.336 40.25 523.336 36.25 526 36.25 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 487 25.000000000000014 C 489.664 25.000000000000014 489.664 29.000000000000014 487 29.000000000000014 C 484.336 29.000000000000014 484.336 25.000000000000014 487 25.000000000000014 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 448 29.499999999999993 C 450.664 29.499999999999993 450.664 33.49999999999999 448 33.49999999999999 C 445.336 33.49999999999999 445.336 29.499999999999993 448 29.499999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 370 25.749999999999993 C 372.664 25.749999999999993 372.664 29.749999999999993 370 29.749999999999993 C 367.336 29.749999999999993 367.336 25.749999999999993 370 25.749999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 331 23.499999999999986 C 333.664 23.499999999999986 333.664 27.499999999999986 331 27.499999999999986 C 328.336 27.499999999999986 328.336 23.499999999999986 331 23.499999999999986 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 292 21.250000000000014 C 294.664 21.250000000000014 294.664 25.250000000000014 292 25.250000000000014 C 289.336 25.250000000000014 289.336 21.250000000000014 292 21.250000000000014 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 253 18.249999999999993 C 255.664 18.249999999999993 255.664 22.249999999999993 253 22.249999999999993 C 250.336 22.249999999999993 250.336 18.249999999999993 253 18.249999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 214 28 C 216.664 28 216.664 32 214 32 C 211.336 32 211.336 28 214 28 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 175 25.749999999999993 C 177.664 25.749999999999993 177.664 29.749999999999993 175 29.749999999999993 C 172.336 29.749999999999993 172.336 25.749999999999993 175 25.749999999999993 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 97 16.75 C 99.664 16.75 99.664 20.75 97 20.75 C 94.336 20.75 94.336 16.75 97 16.75 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 58 17.500000000000014 C 60.664 17.500000000000014 60.664 21.500000000000014 58 21.500000000000014 C 55.336 21.500000000000014 55.336 17.500000000000014 58 17.500000000000014 Z" stroke="red" stroke-width="2"></path><path fill="white" d="M 19 24.25 C 21.664 24.25 21.664 28.25 19 28.25 C 16.336 28.25 16.336 24.25 19 24.25 Z" stroke="red" stroke-width="2"></path></g><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 19.483870967741936 69.75 C 19.483870967741936 69.75 42.86451612903226 68.25 58.45161290322581 68.25 C 74.03870967741936 68.25 97.41935483870968 70.5 97.41935483870968 70.5 M 175.35483870967744 67.5 C 175.35483870967744 67.5 198.73548387096776 64.5 214.32258064516128 63.75 C 229.90967741935484 63 237.7032258064516 63.75 253.29032258064518 63 C 268.8774193548387 62.25 276.6709677419355 60 292.258064516129 60 C 307.8451612903226 60 315.63870967741934 61.8 331.2258064516129 63 C 346.8129032258065 64.2 370.1935483870968 66 370.1935483870968 66 M 448.1290322580645 64.5 C 448.1290322580645 64.5 471.50967741935494 61.49999999999999 487.0967741935484 61.49999999999999 C 502.68387096774205 61.49999999999999 510.47741935483884 61.49999999999999 526.0645161290323 61.49999999999999 C 541.6516129032259 61.49999999999999 565.0322580645161 62.25000000000001 565.0322580645161 62.25000000000001 M 720.9032258064517 66.75 C 720.9032258064517 66.75 744.2838709677419 65.25 759.8709677419355 65.25 C 775.458064516129 65.25 783.2516129032258 66 798.8387096774194 66 C 814.4258064516129 66 822.2193548387097 62.25000000000001 837.8064516129033 60.75 C 853.3935483870968 59.25000000000001 861.1870967741936 58.50000000000001 876.7741935483871 58.50000000000001 C 892.3612903225807 58.50000000000001 915.741935483871 64.5 915.741935483871 64.5 M 993.6774193548388 62.25000000000001 C 993.6774193548388 62.25000000000001 1017.0580645161292 62.25000000000001 1032.6451612903227 63 C 1048.2322580645164 63.74999999999999 1056.0258064516129 66.75 1071.6129032258066 66.75 C 1087.2 66.75 1094.9935483870968 66.75 1110.5806451612902 66.75 C 1126.1677419354837 66.75 1133.9612903225807 63 1149.5483870967741 63 C 1165.1354838709678 63 1188.516129032258 64.5 1188.516129032258 64.5" stroke="rgba(48,69,232,.9)" stroke-width="1" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 9.483870967741936 69.75 L 19.483870967741936 69.75 C 19.483870967741936 69.75 42.86451612903226 68.25 58.45161290322581 68.25 C 74.03870967741936 68.25 97.41935483870968 70.5 97.41935483870968 70.5 L 107.41935483870968 70.5 M 165.35483870967744 67.5 L 175.35483870967744 67.5 C 175.35483870967744 67.5 198.73548387096776 64.5 214.32258064516128 63.75 C 229.90967741935484 63 237.7032258064516 63.75 253.29032258064518 63 C 268.8774193548387 62.25 276.6709677419355 60 292.258064516129 60 C 307.8451612903226 60 315.63870967741934 61.8 331.2258064516129 63 C 346.8129032258065 64.2 370.1935483870968 66 370.1935483870968 66 L 380.1935483870968 66 M 438.1290322580645 64.5 L 448.1290322580645 64.5 C 448.1290322580645 64.5 471.50967741935494 61.49999999999999 487.0967741935484 61.49999999999999 C 502.68387096774205 61.49999999999999 510.47741935483884 61.49999999999999 526.0645161290323 61.49999999999999 C 541.6516129032259 61.49999999999999 565.0322580645161 62.25000000000001 565.0322580645161 62.25000000000001 L 575.0322580645161 62.25000000000001 M 710.9032258064517 66.75 L 720.9032258064517 66.75 C 720.9032258064517 66.75 744.2838709677419 65.25 759.8709677419355 65.25 C 775.458064516129 65.25 783.2516129032258 66 798.8387096774194 66 C 814.4258064516129 66 822.2193548387097 62.25000000000001 837.8064516129033 60.75 C 853.3935483870968 59.25000000000001 861.1870967741936 58.50000000000001 876.7741935483871 58.50000000000001 C 892.3612903225807 58.50000000000001 915.741935483871 64.5 915.741935483871 64.5 L 925.741935483871 64.5 M 983.6774193548388 62.25000000000001 L 993.6774193548388 62.25000000000001 C 993.6774193548388 62.25000000000001 1017.0580645161292 62.25000000000001 1032.6451612903227 63 C 1048.2322580645164 63.74999999999999 1056.0258064516129 66.75 1071.6129032258066 66.75 C 1087.2 66.75 1094.9935483870968 66.75 1110.5806451612902 66.75 C 1126.1677419354837 66.75 1133.9612903225807 63 1149.5483870967741 63 C 1165.1354838709678 63 1188.516129032258 64.5 1188.516129032258 64.5 L 1198.516129032258 64.5 M 632.9677419354839 65.25 L 652.9677419354839 65.25" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(66,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="white" d="M 1188 62.5 L 1190 64.5 1188 66.5 1186 64.5 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 1149 61 L 1151 63 1149 65 1147 63 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 1110 64.75 L 1112 66.75 1110 68.75 1108 66.75 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 1071 64.75 L 1073 66.75 1071 68.75 1069 66.75 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 1032 61 L 1034 63 1032 65 1030 63 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 993 60.25000000000001 L 995 62.25000000000001 993 64.25 991 62.25000000000001 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 915 62.5 L 917 64.5 915 66.5 913 64.5 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 876 56.50000000000001 L 878 58.50000000000001 876 60.50000000000001 874 58.50000000000001 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 837 58.75 L 839 60.75 837 62.75 835 60.75 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 798 64 L 800 66 798 68 796 66 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 759 63.25 L 761 65.25 759 67.25 757 65.25 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 720 64.75 L 722 66.75 720 68.75 718 66.75 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 642 63.25 L 644 65.25 642 67.25 640 65.25 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 565 60.25000000000001 L 567 62.25000000000001 565 64.25 563 62.25000000000001 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 526 59.49999999999999 L 528 61.49999999999999 526 63.49999999999999 524 61.49999999999999 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 487 59.49999999999999 L 489 61.49999999999999 487 63.49999999999999 485 61.49999999999999 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 448 62.5 L 450 64.5 448 66.5 446 64.5 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 370 64 L 372 66 370 68 368 66 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 331 61 L 333 63 331 65 329 63 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 292 58 L 294 60 292 62 290 60 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 253 61 L 255 63 253 65 251 63 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 214 61.75 L 216 63.75 214 65.75 212 63.75 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 175 65.5 L 177 67.5 175 69.5 173 67.5 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 97 68.5 L 99 70.5 97 72.5 95 70.5 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 58 66.25 L 60 68.25 58 70.25 56 68.25 Z" stroke="blue" stroke-width="2"></path><path fill="white" d="M 19 67.75 L 21 69.75 19 71.75 17 69.75 Z" stroke="blue" stroke-width="2"></path></g></g><text x="670" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1276px;" y="24"><tspan>ESTACIÓN: EL ESTRECHO</tspan></text><text x="670" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1276px;" y="41"><tspan>Dep.: LORETO Prov.: PUTUMAYO Dist.: PUTUMAYO</tspan><tspan x="670" dy="14">Lat.: 2°26'47.94'' S Long.: 72°39'51.61'' W Alt.: 110 msnm.</tspan><tspan x="670" dy="14">Tipo: Convencional - Meteorológica</tspan><tspan x="670" dy="14">Código: 102006</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(510,256)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15">Precipitación</text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#7cb5ec"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(124.966796875,3)"><path fill="none" d="M 0 11 L 16 11" stroke="rgba(247,10,08, .9)" stroke-width="1"></path><path fill="white" d="M 8 9 C 10.664 9 10.664 13 8 13 C 5.336 13 5.336 9 8 9 Z" stroke="red" stroke-width="2"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>Temp. max</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(229.548828125,3)"><path fill="none" d="M 0 11 L 16 11" stroke="rgba(48,69,232,.9)" stroke-width="1"></path><path fill="white" d="M 8 9 L 10 11 8 13 6 11 Z" stroke="blue" stroke-width="2"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>Temp. min</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="88.07659583209261" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 88.07659583209261 192)" y="192" opacity="1"><tspan>2026-01-01</tspan></text><text x="127.0443377675765" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 127.0443377675765 192)" y="192" opacity="1"><tspan>2026-01-02</tspan></text><text x="166.01207970306035" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 166.01207970306035 192)" y="192" opacity="1"><tspan>2026-01-03</tspan></text><text x="204.97982163854425" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 204.97982163854425 192)" y="192" opacity="1"><tspan>2026-01-04</tspan></text><text x="243.9475635740281" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 243.9475635740281 192)" y="192" opacity="1"><tspan>2026-01-05</tspan></text><text x="282.91530550951194" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 282.91530550951194 192)" y="192" opacity="1"><tspan>2026-01-06</tspan></text><text x="321.88304744499584" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 321.88304744499584 192)" y="192" opacity="1"><tspan>2026-01-07</tspan></text><text x="360.8507893804797" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 360.8507893804797 192)" y="192" opacity="1"><tspan>2026-01-08</tspan></text><text x="399.8185313159636" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 399.8185313159636 192)" y="192" opacity="1"><tspan>2026-01-09</tspan></text><text x="438.7862732514474" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 438.7862732514474 192)" y="192" opacity="1"><tspan>2026-01-10</tspan></text><text x="477.7540151869313" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 477.7540151869313 192)" y="192" opacity="1"><tspan>2026-01-11</tspan></text><text x="516.7217571224152" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 516.7217571224152 192)" y="192" opacity="1"><tspan>2026-01-12</tspan></text><text x="555.6894990578991" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 555.6894990578991 192)" y="192" opacity="1"><tspan>2026-01-13</tspan></text><text x="594.657240993383" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 594.657240993383 192)" y="192" opacity="1"><tspan>2026-01-14</tspan></text><text x="633.6249829288668" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 633.6249829288668 192)" y="192" opacity="1"><tspan>2026-01-15</tspan></text><text x="672.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 672.5927248643507 192)" y="192" opacity="1"><tspan>2026-01-16</tspan></text><text x="711.5604667998346" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 711.5604667998346 192)" y="192" opacity="1"><tspan>2026-01-17</tspan></text><text x="750.5282087353185" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 750.5282087353185 192)" y="192" opacity="1"><tspan>2026-01-18</tspan></text><text x="789.4959506708022" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 789.4959506708022 192)" y="192" opacity="1"><tspan>2026-01-19</tspan></text><text x="828.4636926062861" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 828.4636926062861 192)" y="192" opacity="1"><tspan>2026-01-20</tspan></text><text x="867.43143454177" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 867.43143454177 192)" y="192" opacity="1"><tspan>2026-01-21</tspan></text><text x="906.399176477254" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 906.399176477254 192)" y="192" opacity="1"><tspan>2026-01-22</tspan></text><text x="945.3669184127377" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 945.3669184127377 192)" y="192" opacity="1"><tspan>2026-01-23</tspan></text><text x="984.3346603482216" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 984.3346603482216 192)" y="192" opacity="1"><tspan>2026-01-24</tspan></text><text x="1023.3024022837055" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1023.3024022837055 192)" y="192" opacity="1"><tspan>2026-01-25</tspan></text><text x="1062.2701442191894" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1062.2701442191894 192)" y="192" opacity="1"><tspan>2026-01-26</tspan></text><text x="1101.2378861546733" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1101.2378861546733 192)" y="192" opacity="1"><tspan>2026-01-27</tspan></text><text x="1140.2056280901572" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1140.2056280901572 192)" y="192" opacity="1"><tspan>2026-01-28</tspan></text><text x="1179.173370025641" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1179.173370025641 192)" y="192" opacity="1"><tspan>2026-01-29</tspan></text><text x="1218.1411119611248" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1218.1411119611248 192)" y="192" opacity="1"><tspan>2026-01-30</tspan></text><text x="1257.1088538966087" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1257.1088538966087 192)" y="192" opacity="1"><tspan>2026-01-31</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="51" style="color:#434348;cursor:default;font-size:11px;fill:#434348;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="179" opacity="1">20</text><text x="51" style="color:#434348;cursor:default;font-size:11px;fill:#434348;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="141" opacity="1">30</text><text x="51" style="color:#434348;cursor:default;font-size:11px;fill:#434348;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="104" opacity="1">40</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="1289" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="179" opacity="1">0</text><text x="1289" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="141" opacity="1">40</text><text x="1289" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="104" opacity="1">80</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"></text></g></svg></div></div>
+                    </div>
+
+                    <div class="tab-pane fade active show" id="tabla" role="tabpanel">
+                        <div id="captcha-section" style="display: none;">
+                            <div class="alert alert-info mt-3" role="alert">
+                                Por favor, verifica que no eres un robot para continuar.
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB2uOxvM6ouZ9Hqw" data-theme="light" data-size="normal" data-callback="onCaptchaSuccess">
+                            <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-mfeh7_response" value="1.fjrv8TOJUHEiOHExqCb9ByY7G6apdF5YFNitUPQ2v7hCNACOC3ADb0j5VsBUAY5osourzCZlMX2m_CK0IKDMIzbo6EDXR6Badv8GQE-qD6ew1R-Vtt2cSMSr1k9BYmbfL0xi0njw03Izkopf37nB66zXfKkwCdLw19-KWfSIakiMyxoB6uSgQbl_ljQJaKgnVZJJ6SRgB-tuAXpTwd_hovDUu78xRZCGRbTUtBX7IyRuLxaP1T7J38eDnCrQ35cDdYjAgqzMY1RQe5wIJ9JyYbpFZqQOOwDXNwPidOtrThh_xRJEyCN1S6j6fnmj2bkL_6IszxxSiGslJkchkZC3RIjvAu0MbOiD3sboGgHTn8OjaYp4SmHGgjCoknyeM3OAn-WZ8q0P9kRP30ffRzjkjZlPbHB2Q0_s8QscxZgLIiNWN1SGEOdvY3J-APl_bQGF.4awFG72bDW0Nvz9p5bpffg.db9949a9873f144be17360e9a52f70a21e37974d29cd1b3dcd3380b33a51db50"></div></div>
+                        </div>
+
+                        <div id="data-section" style="">
+                            <form name="frmData" id="frmData" method="post" action="__dt_est_tp_0s3n@mH1.php" target="contenedor">
+                                <table width="750" border="0" class="body01" bordercolor="#999999" cellpadding="1" cellspacing="1" align="center">
+                                    <tbody><tr>
+                                        <td colspan="7" height="5"></td>
+                                    </tr>
+                                    <tr aling="center" bgcolor="#003366">
+                                        <td colspan="7" bgcolor="#666666">
+                                            <div align="center">
+                                                <b>
+                                                    <font color="#F4F4F4">Estación
+                                                        : EL ESTRECHO                                                    </font>
+                                                </b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Departamento&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>LORETO</td>
+                                        <td>
+                                            <div align="right">Provincia&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> PUTUMAYO</td>
+                                        <td>
+                                            <div align="right">Distrito&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> PUTUMAYO</td>
+                                        <td>
+                                            <div align="center">
+                                                Ir : <select name="CBOFiltro" id="CBOFiltro" class="dire" onchange="javascript:submit()"><option value="202011" selected="">2020-11</option>
+<option value="202012" selected="">2020-12</option>
+<option value="202101" selected="">2021-01</option>
+<option value="202102" selected="">2021-02</option>
+<option value="202103" selected="">2021-03</option>
+<option value="202104" selected="">2021-04</option>
+<option value="202105" selected="">2021-05</option>
+<option value="202106" selected="">2021-06</option>
+<option value="202107" selected="">2021-07</option>
+<option value="202109" selected="">2021-09</option>
+<option value="202110" selected="">2021-10</option>
+<option value="202111" selected="">2021-11</option>
+<option value="202112" selected="">2021-12</option>
+<option value="202201" selected="">2022-01</option>
+<option value="202202" selected="">2022-02</option>
+<option value="202203" selected="">2022-03</option>
+<option value="202204" selected="">2022-04</option>
+<option value="202205" selected="">2022-05</option>
+<option value="202206" selected="">2022-06</option>
+<option value="202207" selected="">2022-07</option>
+<option value="202208" selected="">2022-08</option>
+<option value="202209" selected="">2022-09</option>
+<option value="202210" selected="">2022-10</option>
+<option value="202211" selected="">2022-11</option>
+<option value="202212" selected="">2022-12</option>
+<option value="202301" selected="">2023-01</option>
+<option value="202302" selected="">2023-02</option>
+<option value="202303" selected="">2023-03</option>
+<option value="202304" selected="">2023-04</option>
+<option value="202305" selected="">2023-05</option>
+<option value="202306" selected="">2023-06</option>
+<option value="202307" selected="">2023-07</option>
+<option value="202308" selected="">2023-08</option>
+<option value="202310" selected="">2023-10</option>
+<option value="202311" selected="">2023-11</option>
+<option value="202312" selected="">2023-12</option>
+<option value="202401" selected="">2024-01</option>
+<option value="202402" selected="">2024-02</option>
+<option value="202403" selected="">2024-03</option>
+<option value="202404" selected="">2024-04</option>
+<option value="202405" selected="">2024-05</option>
+<option value="202406" selected="">2024-06</option>
+<option value="202407" selected="">2024-07</option>
+<option value="202408" selected="">2024-08</option>
+<option value="202410" selected="">2024-10</option>
+<option value="202411" selected="">2024-11</option>
+<option value="202412" selected="">2024-12</option>
+<option value="202501" selected="">2025-01</option>
+<option value="202502" selected="">2025-02</option>
+<option value="202503" selected="">2025-03</option>
+<option value="202504" selected="">2025-04</option>
+<option value="202505" selected="">2025-05</option>
+<option value="202506" selected="">2025-06</option>
+<option value="202507" selected="">2025-07</option>
+<option value="202508" selected="">2025-08</option>
+<option value="202509" selected="">2025-09</option>
+<option value="202510" selected="">2025-10</option>
+<option value="202511" selected="">2025-11</option>
+<option value="202512" selected="">2025-12</option>
+<option value="202601" selected="">2026-01</option>
+</select>                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Latitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>2°26'47.94'' S </td>
+                                        <td>
+                                            <div align="right">Longitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>72°39'51.61'' W </td>
+                                        <td>
+                                            <div align="right">Altitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>110 msnm.</td>
+
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Tipo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>Convencional - Meteorológica</td>
+                                        <td>
+                                            <div align="right">Codigo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>102006</td>
+                                        <td>
+                                            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="1.fjrv8TOJUHEiOHExqCb9ByY7G6apdF5YFNitUPQ2v7hCNACOC3ADb0j5VsBUAY5osourzCZlMX2m_CK0IKDMIzbo6EDXR6Badv8GQE-qD6ew1R-Vtt2cSMSr1k9BYmbfL0xi0njw03Izkopf37nB66zXfKkwCdLw19-KWfSIakiMyxoB6uSgQbl_ljQJaKgnVZJJ6SRgB-tuAXpTwd_hovDUu78xRZCGRbTUtBX7IyRuLxaP1T7J38eDnCrQ35cDdYjAgqzMY1RQe5wIJ9JyYbpFZqQOOwDXNwPidOtrThh_xRJEyCN1S6j6fnmj2bkL_6IszxxSiGslJkchkZC3RIjvAu0MbOiD3sboGgHTn8OjaYp4SmHGgjCoknyeM3OAn-WZ8q0P9kRP30ffRzjkjZlPbHB2Q0_s8QscxZgLIiNWN1SGEOdvY3J-APl_bQGF.4awFG72bDW0Nvz9p5bpffg.db9949a9873f144be17360e9a52f70a21e37974d29cd1b3dcd3380b33a51db50">
+                                            <input name="estaciones" id="estaciones" type="hidden" value="102006">
+                                            <input name="t_e" id="t_e" type="hidden" value="M">
+                                            <input name="estado" id="estado" type="hidden" value="DIFERIDO">
+                                            <input name="cod_old" id="cod_old" type="hidden" value="000110">
+                                            <input name="cate_esta" id="cate_esta" type="hidden" value="CO">
+                                            <input name="soloAlt" id="soloAlt" type="hidden" value="110">
+                                        </td>
+
+                                    </tr>
+                                </tbody></table>
+                                <table width="450" align="center">
+                                    <tbody><tr>
+                                        <td>
+                                            <div id="frame">
+                                                <iframe id="contenedor" name="contenedor" width="750" marginwidth="0" height="900" marginheight="0" scrolling="YES" align="center" frameborder="0" cd_frame_id_="eeaa0dc5361632758817345a6cf3deaf">
+                                                </iframe>
+                                            </div>
+                                        </td>
+                                    </tr><tr>
+                                </tr></tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script>
+        function onCaptchaSuccess(token) {
+            document.getElementById("cf-turnstile-response").value = token;
+
+            $('#captcha-section').hide();
+            $('#data-section').show();
+
+            document.getElementById("frmData").submit();
+        }
+
+        function loadStationData(token) {
+            var iframe = document.getElementById("contenedor");
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "__dt_est_tp_0s3n@mH1.php");
+
+            var inputToken = document.createElement("input");
+            inputToken.setAttribute("type", "hidden");
+            inputToken.setAttribute("name", "cf-turnstile-response");
+            inputToken.setAttribute("value", token);
+            form.appendChild(inputToken);
+
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "estaciones");
+            input1.setAttribute("value", '102006');
+            form.appendChild(input1);
+
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            input2.setAttribute("name", "CBOFiltro");
+            input2.setAttribute("value", '202601');
+            form.appendChild(input2);
+
+            var input3 = document.createElement("input");
+            input3.setAttribute("type", "text");
+            input3.setAttribute("name", "t_e");
+            input3.setAttribute("value", 'M');
+            form.appendChild(input3);
+
+            var input4 = document.createElement("input");
+            input4.setAttribute("type", "text");
+            input4.setAttribute("name", "estado");
+            input4.setAttribute("value", 'DIFERIDO');
+            form.appendChild(input4);
+
+            var input5 = document.createElement("input");
+            input5.setAttribute("type", "text");
+            input5.setAttribute("name", "cod_old");
+            input5.setAttribute("value", '000110');
+            form.appendChild(input5);
+
+            var input6 = document.createElement("input");
+            input6.setAttribute("type", "text");
+            input6.setAttribute("name", "cod_old");
+            input6.setAttribute("value", 'CO');
+            form.appendChild(input6);
+
+            var input7 = document.createElement("input");
+            input7.setAttribute("type", "text");
+            input7.setAttribute("name", "alt");
+            input7.setAttribute("value", '110');
+            form.appendChild(input7);
+
+            iframe.contentDocument.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+
+</body></html>

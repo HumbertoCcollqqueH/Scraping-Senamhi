@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SENAMHI Apurímac - Estaciones</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+    <link href="public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/product.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <script src="public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7G3WVK3HHH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-7G3WVK3HHH');
+    </script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W2TVBHD');
+    </script>
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2TVBHD"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="container bg-header d-none d-sm-block">
+        <div class="row">
+            <div class="col-lg-6">
+                <a class="navbar-brand" href="http://www.minam.gob.pe" target="_blank"><img
+                        src="public/images/logo-minam.png" height="45px" class="logo d-inline-block align-middle"
+                        alt="logo MINAM" /></a>
+                <a class="navbar-brand" href="./"><img src="public/images/logo-senamhi.svg" height="48px"
+                        class="logo d-inline-block align-middle" alt="logo SENAMHI" /></a>
+            </div>
+            <div class="col-lg-6 d-none d-sm-block text-right">
+                <!-- <a class="navbar-brand" href="./main.php?dp=apurimac"><img src="public/images/logo-el-peru-primero.png" height="25px" class="logo d-inline-block align-middle" alt="logo El Peru Primero" /></a>-->
+                <a class="navbar-brand"
+                    href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=87#.XG9BzKIzaUl"
+                    target="_blank"><img src="public/images/logo-portal-pte.png" height="39px"
+                        class="logo d-inline-block align-middle" alt="logo Portal de Transparencia" /></a>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light text-center menu-header bg-menu">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+
+        <div class="d-block d-sm-none">
+            <a class="navbar-brand" href="http://www.minam.gob.pe" target="_blank"><img src="public/images/logo-minam.png"
+                    height="30px"
+                    class="logo d-inline-block align-middle"
+                    alt="logo MINAM" /></a>
+            <a class="navbar-brand" href="./"><img src="public/images/logo-senamhi.svg" height="37px"
+                    class="logo d-inline-block align-middle" alt="logo SENAMHI" /></a>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item ml-3 mr-3">
+                    <a class="nav-link  active "
+                        href="./main.php?dp=apurimac"><img src="public/images/home.svg" alt="Inicio"
+                            width="25px" /></a>
+                </li>
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle depa-activo" href="#" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Apurímac</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="./?p=estaciones">Per&uacute;</a>
+                        <a class="dropdown-item" href="main.php?dp=amazonas&p=estaciones">Amazonas</a>
+                        <a class="dropdown-item" href="main.php?dp=ancash&p=estaciones">Áncash</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=estaciones">Apur&iacute;mac</a>
+                        <a class="dropdown-item" href="main.php?dp=arequipa&p=estaciones">Arequipa</a>
+                        <a class="dropdown-item" href="main.php?dp=ayacucho&p=estaciones">Ayacucho</a>
+                        <a class="dropdown-item" href="main.php?dp=cajamarca&p=estaciones">Cajamarca</a>
+                        <a class="dropdown-item" href="main.php?dp=cusco&p=estaciones">Cusco</a>
+                        <a class="dropdown-item"
+                            href="main.php?dp=huancavelica&p=estaciones">Huancavel&iacute;ca</a>
+                        <a class="dropdown-item" href="main.php?dp=huanuco&p=estaciones">Hu&aacute;nuco</a>
+                        <a class="dropdown-item" href="main.php?dp=ica&p=estaciones">Ica</a>
+                        <a class="dropdown-item" href="main.php?dp=junin&p=estaciones">Jun&iacute;n</a>
+                        <a class="dropdown-item" href="main.php?dp=la-libertad&p=estaciones">La Libertad</a>
+                        <a class="dropdown-item" href="main.php?dp=lambayeque&p=estaciones">Lambayeque</a>
+                        <a class="dropdown-item" href="main.php?dp=lima&p=estaciones">Lima / Callao</a>
+                        <a class="dropdown-item" href="main.php?dp=loreto&p=estaciones">Loreto</a>
+                        <a class="dropdown-item" href="main.php?dp=madre-de-dios&p=estaciones">Madre de Dios</a>
+                        <a class="dropdown-item" href="main.php?dp=moquegua&p=estaciones">Moquegua</a>
+                        <a class="dropdown-item" href="main.php?dp=pasco&p=estaciones">Pasco</a>
+                        <a class="dropdown-item" href="main.php?dp=piura&p=estaciones">Piura</a>
+                        <a class="dropdown-item" href="main.php?dp=puno&p=estaciones">Puno</a>
+                        <a class="dropdown-item" href="main.php?dp=san-martin&p=estaciones">San Mart&iacute;n</a>
+                        <a class="dropdown-item" href="main.php?dp=tacna&p=estaciones">Tacna</a>
+                        <a class="dropdown-item" href="main.php?dp=tumbes&p=estaciones">Tumbes</a>
+                        <a class="dropdown-item" href="main.php?dp=ucayali&p=estaciones">Ucayali</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link" href="https://www.senamhi.gob.pe/?p=monitoreo-regional">
+                        <b>Avisos</b>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle " href="#" id="dropdown01"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiempo</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=monitoreo-de-temperatura">Monitoreo
+                            de temperatura</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=pronostico-meteorologico">Pron&oacute;stico
+                            meteorol&oacute;gico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=reportes-nowcasting"
+                            title="Avisos de lluvia a muy corto plazo">Aviso
+                            de lluvia a muy corto plazo</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=aviso-24H"
+                            title="Aviso de lluvia a corto plazo (24H)">Aviso
+                            de lluvias a corto plazo (24H)</a>
+
+                        <!--
+                            <a class="dropdown-item" href="main.php?dp=apurimac&p=reportes-nowcasting" title="Pron&oacute;stico a muy corto plazo">Pron&oacute;stico a muy corto plazo (Nowcasting)</a>
+                            -->
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=aviso-meteorologico">Aviso
+                            meteorol&oacute;gico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=radiacion-uv">Radiaci&oacute;n
+                            UV</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=calidad-del-aire">Calidad
+                            del aire</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=satelites-goes19">Imágenes de satélite y sondajes</a>
+                        <a class="dropdown-item" href="https://www.senamhi.gob.pe/site/volcan/" target="_blank">Vigilancia
+                            de Volcanes</a>
+                        <a class="dropdown-item" href="https://www.senamhi.gob.pe/site/incendio/" target="_blank">Incendios
+                            Forestales</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link" href="https://www.senamhi.gob.pe/site/vigilancia-climatica/?dp=apurimac">
+                        Clima
+                    </a>
+                </li>
+<!-- 
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle " href="#" id="dropdown01"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clima</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=condiciones-climaticas">Condiciones
+                            Clim&aacute;ticas actuales</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=pronostico-climatico">Pron&oacute;stico
+                            clim&aacute;tico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=fenomeno-el-nino">El Ni&ntilde;o</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=mapa-climatico-del-peru">Mapa
+                            clim&aacute;tico nacional</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=heladas-y-friajes">Heladas,
+                            friajes y nevadas</a>
+                    </div>
+                </li> -->
+
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle " href="#"
+                        id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Hidrolog&iacute;a</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown02">
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=monitoreo-hidrologico">Monitoreo
+                            Hidrol&oacute;gico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=pronostico-caudales">Pron&oacute;stico
+                            de caudales</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=aviso-hidrologico">Aviso de
+                            crecida de r&iacute;os</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=aviso-activacion-quebrada">Aviso
+                            ante posible activaci&oacute;n de quebradas</a>
+
+                        <!--
+                            <a class="dropdown-item" href="main.php?dp=apurimac&p=aviso-hidrologico">Avisos hidrol&oacute;gicos</a>
+                            -->
+                        <a class="dropdown-item"
+                            href="main.php?dp=apurimac&p=situacion-hidrologica-nacional"
+                            title="Informaci&oacute;n de los R&iacute;os a Nivel Nacional">Informaci&oacute;n
+                            de los r&iacute;os a nivel nacional</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=sequias" target="_parent"
+                            title="Indicadores de Sequ&iacute;as">Indicadores
+                            de Sequ&iacute;as</a>
+                        <a class="dropdown-item" target="_blank" href="https://idesep.senamhi.gob.pe/dhi-idf/">VISOR (Curvas
+                            de Intensidad-Duraci&oacute;n-Frecuencia)</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle " href="#"
+                        id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agrometeorolog&iacute;a</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=boletin-agro">Monitoreo
+                            Agroclim&aacute;tico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=impacto-en-la-agricultura"
+                            target="_parent" title="Monitoreo y tendencia">Pron&oacute;stico
+                            y Monitoreo Agrometeorol&oacute;gico</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=riesgo-agro">Pron&oacute;stico
+                            de Riesgo Agroclim&aacute;tico</a>
+                        <!--<a class="dropdown-item" href="#">Pron&oacute;stico agroclim&aacute;tico</a>-->
+                    </div>
+                </li>
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle  active " href="#"
+                        id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Datos</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item" href="http://idesep.senamhi.gob.pe/portalidesep/" target="_blank">Datos
+                            Espaciales - IDESEP</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=estaciones">Datos
+                            hidrometeorol&oacute;gicos</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=lluvia-acumulada"
+                            target="_parent" title="Lluvia Acumulada">Datos
+                            de lluvia acumulada</a>
+                        <a class="dropdown-item"
+                            href="main.php?dp=apurimac&p=descarga-datos-hidrometeorologicos">Descarga
+                            de datos</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=solicitud-servicio"
+                            title="Solicitud de servicio">Solicitud
+                            de datos</a>
+                        <!--<a class="dropdown-item" href="http://geoservicios.senamhi.gob.pe:8087/portalidesep/" target="_blank">Datos espaciales - IDESEP</a>-->
+                        <!--
+                    <a class="dropdown-item" href="#">Solicitud de datos</a>
+                    <a class="dropdown-item" href="#">Publicaciones</a>
+                    <a class="dropdown-item" href="#">IDESEP</a>
+                    -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown ml-3 mr-3">
+                    <a class="nav-link dropdown-toggle  active " href="#"
+                        id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios
+                        al Ciudadano</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=tusne">Servicios (TUSNE)</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=tupa">TUPA</a>
+                        <a class="dropdown-item" href="https://reclamos.servicios.gob.pe/?institution_id=203">Libro de
+                            reclamaciones</a>
+                        <a class="dropdown-item" href="https://www.senamhi.gob.pe/consultatutramite/inicio.do"
+                            target="_blank">Consulta tu trámite</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=estudios">Estudios e
+                            investigaciones</a>
+                        <a class="dropdown-item" href="main.php?dp=apurimac&p=boletines"
+                            title="Boletines">Boletines</a>
+                        <a class="dropdown-item" href="http://repositorio.senamhi.gob.pe/" title="Repositorio"
+                            target="_blank">Repositorio
+                            Institucional</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="ModalNowcasting">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>Página en mantenimiento</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lamentamos las molestias y agradecemos su comprensión</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function () {
+        //$('#ModalNowcasting').modal('show');
+    });
+
+    $(document).ready(function () {
+        //$('#ModalNowcasting').modal('show');
+        //$('#myModal').modal('show');
+    });
+
+</script>
+
+<div class="container-fluid box-bg box-bg-estacion-color">
+    <div class="row">
+
+        <div class="container">
+            <div class="row box-conten-int">
+                <h1>Datos / Datos Hidrometeorol&oacute;gicos</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container box-conten-int">
+    <div class="row">
+        <div class="col-12">
+            <!--inicio contenido-->
+            <div class="col-12 col-md-12 col-lg-12">
+                                <h2>Datos Hidrometeorol&oacute;gicos en Apurímac </h2>
+            </div>
+
+
+            <!--<iframe class="" src="mapas/mapa-estaciones/mapadepesta-func.php?dp=apurimac" allowfullscreen width="100%" height="800" frameborder="0"></iframe>-->
+            <!--<iframe class="" src="mapas/mapa-estaciones/mapadepesta1.php?dp=apurimac" allowfullscreen width="100%" height="800" frameborder="0"></iframe>-->
+
+
+            <iframe class="" src="mapas/mapa-estaciones-2/?dp=apurimac" allowfullscreen width="100%" height="900" frameborder="0"></iframe>
+
+
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <div class="ico-leyenda-mapa-convencional-m m-1 p-4 tex" style="font-size: 14px;">
+                            Estaci&oacute;n Meteorol&oacute;gica Convencional
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <div class="ico-leyenda-mapa-automatica-m m-1 p-4" style="font-size: 14px;">
+                            Estaci&oacute;n Meteorol&oacute;gica Automatica
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <div class="ico-leyenda-mapa-convencional-h m-1 p-4" style="font-size: 14px;">
+                            Estaci&oacute;n Hidrol&oacute;gica Convencional
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <div class="ico-leyenda-mapa-automatica-h m-1 p-4" style="font-size: 14px;">
+                            Estaci&oacute;n Hidrol&oacute;gica Automatica
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fin contenido-->
+        </div>
+    </div>
+</div>
+
+    <footer class="container-fluid box-bg box-bg-footer footer-web">
+        <div class="container-fluid">
+            <div class="row">
+                
+<div class="container pt-5">   
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 py-5">
+            <section>
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=SENAMHI+lima+peru"
+                    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="box-conten-footer">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <h2 class="tittle-line">Contáctenos</h2>
+                </div> 
+                <address>
+                    <strong class="black">SENAMHI - Sede Central</strong><br/>
+                    <span>Jr. Cahuide 785, Jesús María - Lima</span><br/>
+                    <abbr title="Phone" class="black">Central telefónica: </abbr> <a href="tel:+511 6141414">(01) 614 1414</a><br/>
+                    <abbr title="Phone" class="black">Atención al ciudadano: </abbr> <a href="tel:+511 4702867">(01) 470 2867</a> / <a href="tel:+511 998487805">(01) 998 487 805</a><br/>
+                    <abbr title="Phone" class="black">Pronóstico del tiempo: </abbr> <a href="tel:+511 2658798">(01) 265 8798</a> / <a href="tel:+511 996369766">(01) 996 369 766</a><br/>
+                    <abbr title="mail" class="black">Consultas: </abbr> <a href="mailto:atencionalciudadano@senamhi.gob.pe">atencionalciudadano@senamhi.gob.pe</a><br/>
+                    <abbr title="working" class="black">Horario de atención: </abbr>
+                    <br/>Atención al ciudadano: De lunes a viernes de 8:30 a 17:15 Hrs.
+                    <br/>Mesa de partes: De lunes a viernes de 8:30 a 16:45 Hrs. <br/>
+                    <abbr title="working" class="black">Registra tus documentos: </abbr>
+                    <a href="https://www.senamhi.gob.pe/mesadepartesdigital/inicio.do" target="_blank">https://www.senamhi.gob.pe/mesadepartesdigital/inicio.do</a><br/>
+                    <abbr title="mail" class="black">Consulta tu trámite: </abbr>
+                    <a href="https://www.senamhi.gob.pe/consultatutramite/inicio.do" target="_blank">https://www.senamhi.gob.pe/consultatutramite/inicio.do</a><br/>
+                    <a href="tel:+511 982958271">(01) 982 958 271</a>
+                </address> 
+                <address>
+                        <strong class="black">SENAMHI DZ 12 - Cusco / Apurimac / Madre de Dios</strong><br/>
+                        <span>Urbanizaci&oacute;n T&uacute;pac Amaru G-9 Auxiliar v&iacute;a de Evitamiento, distrito de San Sebasti&aacute;n - Cusco, Per&uacute;</span><br/>
+                        <abbr title="Phone" class="black">Tel&eacute;fono: </abbr> <a href="tel:+511 ">(084) 24 8789</a><br />
+                        <abbr title="working" class="black">Horario de atenci&oacute;n: </abbr> <br />De  lunes a viernes de 8:00 Hrs. a 17:00 Hrs.
+                    </address> 
+                <div class="row"> 
+                    <div class="col-8"> 
+                        <aside>
+                            <a href="https://www.facebook.com/senamhiperu" target="_blank" title="enlace facebook puno">
+                               <img src="https://www.senamhi.gob.pe/public/images/logo-bn-rs-facebook.svg" height="25px" class="mr-3"/></a>
+                            <a href="https://twitter.com/senamhiperu" target="_blank" title="enlace twitter puno">
+                               <img src="https://www.senamhi.gob.pe/public/images/logo-bn-rs-twitter.svg" height="25px" class="ml-2 mr-3"/></a>
+                            <a href="https://www.youtube.com/channel/UCSy_etV_nlGLFlq7KTx1e9Q" target="_blank" title="enlace youtube SENAMHI">
+                               <img src="https://www.senamhi.gob.pe/public/images/logo-bn-rs-youtube.svg" height="25px" class="ml-2 mr-3"/></a>
+                            <a href="https://www.flickr.com/photos/senamhiperu/" target="_blank" title="enlace flicker SENAMHI">
+                               <img src="https://www.senamhi.gob.pe/public/images/logo-bn-rs-flickr.svg" height="15px" class="ml-2 mr-3"/></a>
+                            <a href="https://issuu.com/senamhi_peru" target="_blank" title="enlace issuu SENAMHI">
+                               <img src="https://www.senamhi.gob.pe/public/images/logo-bn-rs-issuu.svg" height="25px" class="ml-3"/></a>
+                        </aside> 
+                    </div> 
+                    <div class="col-4 pt-4 m-0">
+                        <a href="https://www.senamhi.gob.pe/?p=libro-reclamaciones">
+                            <img class="img-thumbnail" src="https://www.senamhi.gob.pe/public/images/logo-libro-reclamaciones.jpg"  width="120">
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
+<div class="container-fluid box-bg-footer" style="padding: 50px 0 35px 0; background: #062243; min-height: 400px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="box-conten-footer">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <h3 class="tittle-line">Institución</h3>
+                    </div>
+                    <ul>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=senamhi">&iquest;Quienes Somos?</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=organigrama">Organigrama</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=funcionarios">Funcionarios</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=sedes">Sedes</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=normas">Normas Emitidas</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=control-interno">Control Interno</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=codigo-de-etica">Codigo de ética</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=convocatorias">Convocatorias de Empleo</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=programas-y-proyectos">Programas y Proyectos</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=prensa">Prensa</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/intranetsenamhi/login.php" target="_blank">Intranet</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="box-conten-footer">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <h3 class="tittle-line">Herramientas</h3>
+                    </div>
+                    <ul>
+                    	<li><a href="https://idesep.senamhi.gob.pe/" title="IDESEP" target="_blank"><strong>Infraestructura de Datos Espaciales del SENAMHI PERú - IDESEP</a></strong></li>
+                        <li><a href="https://idesep.senamhi.gob.pe/dhi-idf/" target="_blank">VISOR (Curvas de Intensidad-Duración-Frecuencia)</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=sinoptica" title="Análisis Meteorológico">Análisis Meteorológico</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=aviso-meteorologico-historico" title="Análisis Meteorológico">Avisos Meteorológicos anteriores</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=articulos" title="Art&iacute;culos Cient&iacute;ficos">Art&iacute;culos Cient&iacute;ficos</a></li>
+                        <li><a href="site/incendio" target="_blank" title="Incendios Forestales">Vigilancia Atmosférica de Incendios Forestales</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/site/volcan/" target="_blank" title="Vigilancia de Volcanes">Vigilancia de Volcanes</a></li>
+                        <li><a href="https://www.senamhi.gob.pe/?&p=cambio-climatico" target="_parent" title="Cambio Climático">Cambio Climático</a></li>
+                        <li><a href="http://idesep.senamhi.gob.pe/indicadores/" target="_blank" title="Indicadores Climáticos">Indicadores Climáticos</a></li>
+                        <li><a href="https://web2.senamhi.gob.pe" title="Versión Web anterior">Versión Web anterior</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="box-conten-footer">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <h3 class="tittle-line">Enlaces de Interés</h3>
+                    </div>
+                    <ul>
+                        <li><a href="https://www.senamhi.gob.pe/?p=contrataciones-8uit" target="_blank">ASP - 8 UIT</a></li>
+                        <li><a href="https://www.gob.pe/8901" target="_blank">Integridad y Transparencia durante la emergencia sanitaria</a></li>
+                        <li><a href="https://www.minam.gob.pe/" target="_blank">Ministerio del Ambiente</a></li>
+                        <li><a href="https://www.wmo.int/pages/index_es.html" target="_blank">OMM</a></li>
+                        <li><a href="https://erecruit.wmo.int/public/" target="_blank">Anuncios OMM</a></li>
+                        <li><a href="https://www.peru.gob.pe/" target="_blank">Portal del Estado Peruano</a></li>
+                        <li><a href="https://www.congreso.gob.pe/" target="_blank">Congreso de la República</a></li>
+                        <li><a href="https://www.sanciones.gob.pe:8081/transparencia/" target="_blank">RNSDD</a></li>
+                        <li><a href="https://cloudatlas.wmo.int/es/home.html" target="_blank">Atlas Internacional de Nubes - Manual de Observación de nubes y otros meteoros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+    </footer>
+    
+    <script src="public/lib/vendor/popper.min.js"></script>
+    <script src="public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="public/lib/vendor/holder.min.js"></script>
+    <script>
+        Holder.addTheme('thumb', {
+            bg: '#55595c',
+            fg: '#eceeef',
+            text: 'Thumbnail'
+        });
+    </script>
+</body>
+
+</html>

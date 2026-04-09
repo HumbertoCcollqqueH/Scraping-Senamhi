@@ -1,0 +1,32 @@
+﻿AÑO / MES / DÍA,TEMPERATURA (°C),HUMEDAD RELATIVA (%),PRECIPITACIÓN (mm/día)
+MAX,MIN,TOTAL
+2023-04-01,,,,119.5
+2023-04-02,,,,57.2
+2023-04-03,,,,0.2
+2023-04-04,,,,0.0
+2023-04-05,,,,2.3
+2023-04-06,,,,17.0
+2023-04-07,,,,3.2
+2023-04-08,,,,72.0
+2023-04-09,,,,5.0
+2023-04-10,,,,0.0
+2023-04-11,,,,0.0
+2023-04-12,,,,0.0
+2023-04-13,,,,5.4
+2023-04-14,,,,23.0
+2023-04-15,,,,3.1
+2023-04-16,,,,14.4
+2023-04-17,,,,0.0
+2023-04-18,,,,0.0
+2023-04-19,,,,0.0
+2023-04-20,,,,29.2
+2023-04-21,,,,81.3
+2023-04-22,,,,0.0
+2023-04-23,,,,0.0
+2023-04-24,,,,24.0
+2023-04-25,,,,0.0
+2023-04-26,,,,19.0
+2023-04-27,,,,0.0
+2023-04-28,,,,18.0
+2023-04-29,,,,47.0
+2023-04-30,,,,"Fatal error: Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php:2851 Stack trace: #0 /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php(2851): number_format() #1 {main} thrown in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php on line 2851"

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SENAMHI Scraper</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── VARIABLES ──────────────────────────────────────────────────────────── */
+:root {
+  --bg:        #050c18;
+  --bg2:       #08111f;
+  --panel:     #0b1628;
+  --panel2:    #0e1d35;
+  --border:    rgba(255,255,255,.07);
+  --border2:   rgba(255,255,255,.12);
+  --text:      #e8f0ff;
+  --muted:     #607b9e;
+  --muted2:    #8ba3c7;
+  --cyan:      #2dd4f0;
+  --cyan2:     #7ae7f7;
+  --blue:      #3b7bff;
+  --purple:    #7c5af7;
+  --green:     #22d98a;
+  --yellow:    #f5a623;
+  --red:       #ff5263;
+  --radius:    12px;
+  --radius-sm: 8px;
+  --mono:      'JetBrains Mono', monospace;
+  --sans:      'DM Sans', sans-serif;
+}
+
+/* ── RESET & BASE ───────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Fondo con malla */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 5% 0%, rgba(43,212,240,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 95% 100%, rgba(59,123,255,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(124,90,247,.05) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;z-index:0;
+}
+
+/* ── LAYOUT ─────────────────────────────────────────────────────────────── */
+.root{
+  position:relative;z-index:1;
+  max-width:1440px;
+  margin:0 auto;
+  padding:28px 24px;
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:20px;
+  min-height:100vh;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────────────────── */
+.header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.header-left{}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cyan);
+  padding:5px 10px;
+  border:1px solid rgba(45,212,240,.2);
+  border-radius:999px;
+  margin-bottom:10px;
+}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{
+  font-size:clamp(28px,4vw,52px);
+  font-weight:700;
+  letter-spacing:-.03em;
+  line-height:1;
+  background:linear-gradient(120deg,#fff 0%,#acd8ff 40%,var(--cyan) 70%,var(--blue) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tagline{
+  margin-top:8px;
+  font-size:15px;
+  color:var(--muted2);
+  font-weight:400;
+}
+
+.header-right{
+  display:flex;align-items:center;gap:10px;
+}
+.status-chip{
+  display:flex;align-items:center;gap:7px;
+  background:var(--panel);
+  border:1px solid var(--border2);
+  border-radius:999px;
+  padding:7px 14px;
+  font-family:var(--mono);font-size:12px;color:var(--muted2);
+}
+.status-chip .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--muted);
+  transition:all .3s;
+}
+.status-chip.running .dot{background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 1.2s infinite;}
+.status-chip.paused  .dot{background:var(--yellow);}
+.status-chip.done    .dot{background:var(--cyan);}
+
+/* ── MAIN GRID ──────────────────────────────────────────────────────────── */
+.main-grid{
+  display:grid;
+  grid-template-columns:360px 1fr;
+  gap:20px;
+  align-items:start;
+}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr;}}
+
+/* ── PANEL BASE ─────────────────────────────────────────────────────────── */
+.panel{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.panel-head{
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+.panel-head-title{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);
+}
+.panel-head-badge{
+  margin-left:auto;
+  font-family:var(--mono);font-size:10px;color:var(--muted);
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:999px;padding:2px 8px;
+}
+.panel-body{padding:18px;}
+
+/* ── FORM CONTROLS ──────────────────────────────────────────────────────── */
+.field{margin-bottom:16px;}
+.field:last-child{margin-bottom:0;}
+.field-label{
+  display:block;
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);
+  margin-bottom:7px;
+}
+select,input[type=text]{
+  width:100%;
+  background:var(--panel2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-sm);
+  color:var(--text);
+  font-family:var(--sans);font-size:14px;
+  padding:11px 14px;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+  appearance:none;
+}
+select:focus,input[type=text]:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(45,212,240,.12);
+}
+.select-wrap{position:relative;}
+.select-wrap::after{
+  content:'▾';
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  color:var(--muted);pointer-events:none;font-size:12px;
+}
+
+/* Headless toggle */
+.toggle-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;
+}
+.toggle-label{font-size:13px;color:var(--muted2);}
+.toggle-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.toggle{position:relative;width:42px;height:22px;flex-shrink:0;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-track{
+  position:absolute;inset:0;
+  background:var(--panel2);border:1px solid var(--border2);
+  border-radius:999px;cursor:pointer;transition:.25s;
+}
+.toggle-track::before{
+  content:'';position:absolute;
+  width:16px;height:16px;left:2px;top:50%;transform:translateY(-50%);
+  background:var(--muted);border-radius:50%;transition:.25s;
+}
+.toggle input:checked + .toggle-track{background:rgba(45,212,240,.15);border-color:var(--cyan);}
+.toggle input:checked + .toggle-track::before{left:22px;background:var(--cyan);}
+
+/* Alert/note */
+.alert{
+  border-radius:var(--radius-sm);
+  padding:11px 13px;
+  font-size:12.5px;line-height:1.6;
+  margin-bottom:14px;
+  display:flex;gap:9px;align-items:flex-start;
+}
+.alert.warn{background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.22);color:#fdd88a;}
+.alert.info{background:rgba(45,212,240,.05);border:1px solid rgba(45,212,240,.18);color:#9ee8f8;}
+.alert-icon{flex-shrink:0;font-size:14px;margin-top:1px;}
+
+/* ── BUTTONS ─────────────────────────────────────────────────────────────── */
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 16px;
+  border:none;border-radius:var(--radius-sm);
+  font-family:var(--sans);font-size:13.5px;font-weight:600;
+  cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;}
+.btn:hover:not(:disabled){transform:translateY(-1px);}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#03090f;flex:1;justify-content:center;
+}
+.btn-primary:hover:not(:disabled){box-shadow:0 4px 20px rgba(45,212,240,.3);}
+.btn-danger{background:rgba(255,82,99,.12);border:1px solid rgba(255,82,99,.3);color:#ffb3ba;}
+.btn-success{background:rgba(34,217,138,.12);border:1px solid rgba(34,217,138,.3);color:#a4f7d6;}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--muted2);}
+.btn-ghost:hover:not(:disabled){background:rgba(255,255,255,.04);}
+.btn-sm{padding:7px 11px;font-size:12px;}
+.btn-xs{padding:4px 8px;font-size:11px;border-radius:6px;}
+
+/* ── PROGRESO ────────────────────────────────────────────────────────────── */
+.progress-section{margin-top:16px;}
+.progress-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:6px;
+}
+.bar{height:3px;background:var(--panel2);border-radius:3px;overflow:hidden;}
+.bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  border-radius:3px;
+  transition:width .4s ease;width:0%;
+}
+.bar-fill.indeterminate{width:35%;animation:slide 1.6s infinite;}
+@keyframes slide{0%{margin-left:-35%}100%{margin-left:100%}}
+.task-text{
+  font-family:var(--mono);font-size:11px;color:var(--cyan);
+  margin-top:8px;min-height:1.4em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* ── KPIs ────────────────────────────────────────────────────────────────── */
+.kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;}
+.kpi{
+  background:var(--panel2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:12px 14px;
+}
+.kpi-val{font-size:22px;font-weight:700;line-height:1;}
+.kpi-val.green{color:var(--green);}
+.kpi-val.cyan {color:var(--cyan);}
+.kpi-val.red  {color:var(--red);}
+.kpi-lbl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+
+/* ── COLUMNA DERECHA ─────────────────────────────────────────────────────── */
+.right-col{display:flex;flex-direction:column;gap:20px;}
+
+/* ── ESTADO PANEL ────────────────────────────────────────────────────────── */
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 18px 18px;}
+.meta-item{}
+.meta-key{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.meta-val{font-size:13.5px;color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.meta-val.em{color:var(--cyan);}
+
+/* ── ESTACIONES ──────────────────────────────────────────────────────────── */
+.stations-panel{}
+.stations-search{
+  padding:12px 18px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.stations-search input{
+  width:100%;
+  background:var(--panel2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-sm);
+  color:var(--text);
+  font-family:var(--sans);font-size:13px;
+  padding:9px 12px 9px 34px;
+  outline:none;
+}
+.stations-search::before{
+  content:'🔍';
+  position:absolute;left:26px;top:50%;transform:translateY(-50%);
+  font-size:12px;pointer-events:none;
+}
+.stations-list{
+  max-height:260px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.station-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:background .15s;
+  gap:8px;
+}
+.station-item:last-child{border-bottom:none;}
+.station-item:hover{background:rgba(255,255,255,.03);}
+.station-item.selected{background:rgba(45,212,240,.06);border-left:2px solid var(--cyan);}
+.station-code{font-family:var(--mono);font-size:12px;color:var(--cyan);flex-shrink:0;}
+.station-type{font-size:11.5px;color:var(--muted2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.station-actions{display:flex;gap:5px;flex-shrink:0;}
+.type-badge{
+  display:inline-block;
+  font-family:var(--mono);font-size:10px;
+  padding:2px 7px;border-radius:999px;
+  border:1px solid;flex-shrink:0;
+}
+.type-badge.conv-met{background:rgba(45,212,240,.08);border-color:rgba(45,212,240,.25);color:var(--cyan);}
+.type-badge.auto-met{background:rgba(59,123,255,.08);border-color:rgba(59,123,255,.25);color:#7eb2ff;}
+.type-badge.conv-hid{background:rgba(34,217,138,.08);border-color:rgba(34,217,138,.25);color:var(--green);}
+.type-badge.auto-hid{background:rgba(124,90,247,.08);border-color:rgba(124,90,247,.25);color:#b89aff;}
+
+/* ── BOTTOM GRID (log + archivos) ─────────────────────────────────────────── */
+.bottom-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+@media(max-width:900px){.bottom-grid{grid-template-columns:1fr;}}
+
+/* ── LOG ─────────────────────────────────────────────────────────────────── */
+.log-box{
+  background:#040a13;
+  border-radius:0 0 var(--radius) var(--radius);
+  padding:12px 14px;
+  height:280px;
+  overflow-y:auto;
+  font-family:var(--mono);font-size:11.5px;line-height:1.65;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.log-entry{display:flex;gap:8px;margin-bottom:2px;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:none}}
+.log-time{color:var(--muted);flex-shrink:0;}
+.log-msg.info   {color:#9ab8d9;}
+.log-msg.success{color:#7df3be;}
+.log-msg.warning{color:#f9d97e;}
+.log-msg.error  {color:#ff9aa4;}
+
+/* ── ARCHIVOS ────────────────────────────────────────────────────────────── */
+.files-tree{
+  height:280px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.region-group{border-bottom:1px solid var(--border);}
+.region-group:last-child{border-bottom:none;}
+.region-header{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 16px;
+  cursor:pointer;
+  background:rgba(255,255,255,.02);
+  transition:background .15s;
+  user-select:none;
+}
+.region-header:hover{background:rgba(255,255,255,.04);}
+.region-arrow{
+  font-size:10px;color:var(--muted);
+  transition:transform .2s;
+  flex-shrink:0;
+}
+.region-arrow.open{transform:rotate(90deg);}
+.region-name{font-family:var(--mono);font-size:12px;color:var(--cyan);font-weight:600;flex:1;}
+.region-count{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.station-group{display:none;padding:0 0 4px 20px;}
+.station-group.open{display:block;}
+.station-header{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 16px;
+  cursor:pointer;
+  transition:background .15s;
+  user-select:none;
+}
+.station-header:hover{background:rgba(255,255,255,.03);}
+.station-header .arrow{font-size:9px;color:var(--muted);transition:transform .2s;}
+.station-header .arrow.open{transform:rotate(90deg);}
+.station-sname{font-size:12.5px;color:var(--text);flex:1;}
+.station-nfiles{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.files-group{display:none;padding:2px 0 4px 44px;}
+.files-group.open{display:block;}
+.file-row{
+  display:flex;align-items:center;gap:8px;
+  padding:4px 8px;
+  border-radius:6px;
+  transition:background .15s;
+}
+.file-row:hover{background:rgba(255,255,255,.03);}
+.file-icon{font-size:11px;flex-shrink:0;}
+.file-name{font-family:var(--mono);font-size:11px;color:var(--muted2);flex:1;}
+.file-size{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.file-dl{
+  font-family:var(--mono);font-size:10px;color:var(--cyan);
+  text-decoration:none;padding:2px 6px;
+  border:1px solid rgba(45,212,240,.25);border-radius:5px;
+  flex-shrink:0;
+  transition:background .15s;
+}
+.file-dl:hover{background:rgba(45,212,240,.12);}
+.empty-tree{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;gap:8px;color:var(--muted);
+  font-family:var(--mono);font-size:12px;
+  padding:32px;text-align:center;
+}
+.empty-tree .icon{font-size:28px;opacity:.4;}
+
+/* ── SCROLLBAR ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:99px;}
+</style>
+</head>
+<body>
+<div class="root">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <div class="header-left">
+      <div class="eyebrow">Minería de Datos · Web Scraping · UPEU 2026</div>
+      <h1>SENAMHI<br>Data Scraper</h1>
+      <p class="tagline">Descarga masiva de datos hidrometeorológicos históricos por región y tipo de estación</p>
+    </div>
+    <div class="header-right">
+      <div class="status-chip" id="statusChip">
+        <div class="dot"></div>
+        <span id="statusLabel">Sin proceso activo</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN GRID ═══ -->
+  <div class="main-grid">
+
+    <!-- ─── COLUMNA IZQ: CONFIGURACIÓN ─── -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- Configuración -->
+      <div class="panel">
+        <div class="panel-head">
+          <span style="font-size:14px;">⚙️</span>
+          <span class="panel-head-title">Configuración</span>
+        </div>
+        <div class="panel-body">
+
+          <div class="alert warn">
+            <span class="alert-icon">⚠️</span>
+            <span>Si aparece CAPTCHA o Turnstile, resuélvelo manualmente en Chrome y pulsa <b>Reanudar</b>.</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Región</label>
+            <div class="select-wrap">
+              <select id="region"></select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Carpeta de destino</label>
+            <input type="text" id="outputDir" value="descargas_senamhi" placeholder="descargas_senamhi"/>
+          </div>
+
+          <div class="toggle-row">
+            <div>
+              <div class="toggle-label">Modo sin ventana (Headless)</div>
+              <div class="toggle-sub">Desactivado = Chrome visible (recomendado)</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="headless"/>
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-primary" id="btnStart" onclick="startScraping()">
+              ▶ &nbsp;Iniciar Análisis
+            </button>
+          </div>
+          <div class="btn-group" style="margin-top:8px;">
+            <button class="btn btn-success btn-sm" id="btnResume" onclick="resume()" disabled>
+              ↺ Reanudar
+            </button>
+            <button class="btn btn-danger btn-sm" id="btnStop" onclick="stopScraping()" disabled>
+              ■ Detener
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="loadFiles()" title="Actualizar lista de archivos">
+              ↻ Archivos
+            </button>
+          </div>
+
+          <!-- Barra de progreso -->
+          <div class="progress-section">
+            <div class="progress-row">
+              <span>Progreso</span>
+              <span id="progressPct">—</span>
+            </div>
+            <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+            <div class="task-text" id="taskText">Listo para iniciar</div>
+          </div>
+
+          <!-- KPIs -->
+          <div class="kpis">
+            <div class="kpi">
+              <div class="kpi-val cyan" id="kpiStations">0</div>
+              <div class="kpi-lbl">Estaciones</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-val green" id="kpiDownloaded">0</div>
+              <div class="kpi-lbl">Descargados</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-val red" id="kpiErrors">0</div>
+              <div class="kpi-lbl">Errores</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Estado de sesión -->
+      <div class="panel">
+        <div class="panel-head">
+          <span style="font-size:14px;">📡</span>
+          <span class="panel-head-title">Estado de sesión</span>
+        </div>
+        <div class="meta-grid">
+          <div class="meta-item">
+            <div class="meta-key">Región</div>
+            <div class="meta-val em" id="mRegion">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-key">Categoría</div>
+            <div class="meta-val" id="mCat">—</div>
+          </div>
+          <div class="meta-item" style="grid-column:1/-1;">
+            <div class="meta-key">Estación actual</div>
+            <div class="meta-val em" id="mStation">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-key">Periodo</div>
+            <div class="meta-val" id="mPeriod">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-key">Progreso</div>
+            <div class="meta-val" id="mProgress">0 / 0</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /columna izq -->
+
+    <!-- ─── COLUMNA DER ─── -->
+    <div class="right-col">
+
+      <!-- Estaciones inventariadas -->
+      <div class="panel stations-panel">
+        <div class="panel-head">
+          <span style="font-size:14px;">🗺️</span>
+          <span class="panel-head-title">Estaciones inventariadas</span>
+          <span class="panel-head-badge" id="stationCount">0 estaciones</span>
+        </div>
+        <div class="stations-search">
+          <input type="text" id="stationSearch" placeholder="Buscar por código o tipo..." oninput="filterStations()"/>
+        </div>
+        <div class="stations-list" id="stationsList">
+          <div style="padding:24px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;">
+            Inicia el análisis de una región para ver las estaciones disponibles.
+          </div>
+        </div>
+        <!-- Acciones de estación seleccionada -->
+        <div style="padding:12px 18px;border-top:1px solid var(--border);display:flex;gap:8px;align-items:center;">
+          <div style="font-family:var(--mono);font-size:11px;color:var(--muted);flex:1;" id="selectedInfo">
+            Ninguna estación seleccionada
+          </div>
+          <button class="btn btn-ghost btn-sm" id="btnOpenStation" onclick="openStation()" disabled>
+            🔍 Abrir estacion
+          </button>
+          <button class="btn btn-primary btn-sm" id="btnDownloadStation" onclick="confirmDownload()" disabled>
+            ⬇ Descargar
+          </button>
+        </div>
+      </div>
+
+      <!-- Log -->
+      <div class="panel">
+        <div class="panel-head">
+          <span style="font-size:14px;">📋</span>
+          <span class="panel-head-title">Log en tiempo real</span>
+          <button class="btn btn-ghost btn-xs" style="margin-left:auto;" onclick="clearLog()">Limpiar</button>
+        </div>
+        <div class="log-box" id="logBox"></div>
+      </div>
+
+    </div><!-- /columna der -->
+
+  </div><!-- /main-grid -->
+
+  <!-- ═══ BOTTOM: ARCHIVOS ═══ -->
+  <div class="panel" style="margin-top:0;">
+    <div class="panel-head">
+      <span style="font-size:14px;">📁</span>
+      <span class="panel-head-title">Archivos CSV descargados</span>
+      <span class="panel-head-badge" id="totalFilesLabel">0 archivos</span>
+      <button class="btn btn-ghost btn-xs" style="margin-left:8px;" onclick="loadFiles()">↻ Actualizar</button>
+    </div>
+    <div class="files-tree" id="filesTree">
+      <div class="empty-tree">
+        <div class="icon">🗂️</div>
+        <div>Aún no hay archivos CSV descargados.</div>
+        <div style="color:var(--muted);font-size:10px;">Inicia el scraping y descarga estaciones para verlos aquí.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /root -->
+
+<script>
+const API = '';
+let selectedUrl = '';
+let allStations = [];
+let lastLogLen = 0;
+let autoScroll = true;
+
+// ── INIT ────────────────────────────────────────────────────────────────────
+async function init() {
+  await loadRegions();
+  await pollStatus();
+  setInterval(pollStatus, 1600);
+}
+
+async function loadRegions() {
+  const r = await fetch(`${API}/api/regiones`).catch(()=>null);
+  if (!r) return;
+  const data = await r.json();
+  const sel = document.getElementById('region');
+  sel.innerHTML = Object.entries(data)
+    .map(([v,l]) => `<option value="${esc(v)}">${esc(l)}</option>`)
+    .join('');
+}
+
+// ── ACCIONES ─────────────────────────────────────────────────────────────────
+async function startScraping() {
+  const region    = document.getElementById('region').value;
+  const outputDir = document.getElementById('outputDir').value || 'descargas_senamhi';
+  const headless  = document.getElementById('headless').checked;
+  lastLogLen = 0;
+  document.getElementById('logBox').innerHTML = '';
+  const r = await fetch(`${API}/api/start`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({region, output_dir:outputDir, headless})
+  });
+  const d = await r.json();
+  if (d.error) { alert(d.error); return; }
+}
+
+async function stopScraping() {
+  await fetch(`${API}/api/stop`, {method:'POST'});
+}
+
+async function resume() {
+  await fetch(`${API}/api/resume`, {method:'POST'});
+}
+
+let selectedStationEntry = null;
+
+function selectStation(entry) {
+  selectedUrl = entry.url;
+  selectedStationEntry = entry;
+  document.querySelectorAll('.station-item').forEach(el => el.classList.remove('selected'));
+  const el = document.querySelector(`.station-item[data-url="${CSS.escape(entry.url)}"]`);
+  if (el) el.classList.add('selected');
+  document.getElementById('selectedInfo').textContent =
+    `Seleccionada: ${entry.code || entry.name} · ${entry.type_guess || ''}`;
+  document.getElementById('btnOpenStation').disabled = false;
+  document.getElementById('btnDownloadStation').disabled = false;
+}
+
+async function openStation() {
+  if (!selectedUrl) return;
+  const r = await fetch(`${API}/api/open_station`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({station_url: selectedUrl})
+  });
+  const d = await r.json();
+  if (d.error) alert(d.error);
+}
+
+async function confirmDownload() {
+  if (!selectedUrl) return;
+  const r = await fetch(`${API}/api/confirm_download`, {method:'POST'});
+  const d = await r.json();
+  if (d.error) alert(d.error);
+}
+
+function clearLog() {
+  document.getElementById('logBox').innerHTML = '';
+  lastLogLen = 0;
+}
+
+// ── POLLING ───────────────────────────────────────────────────────────────────
+async function pollStatus() {
+  try {
+    const r = await fetch(`${API}/api/status`);
+    const d = await r.json();
+    renderStatus(d);
+    renderLog(d.log || []);
+    renderStations(d.stations || []);
+  } catch(e) {}
+}
+
+function renderStatus(d) {
+  const chip = document.getElementById('statusChip');
+  const lbl  = document.getElementById('statusLabel');
+
+  chip.className = 'status-chip';
+  if (d.running && d.awaiting_human) {
+    chip.classList.add('paused');
+    lbl.textContent = 'Esperando verificación manual';
+  } else if (d.running) {
+    chip.classList.add('running');
+    lbl.textContent = 'Proceso en ejecución';
+  } else {
+    lbl.textContent = 'Sin proceso activo';
+  }
+
+  document.getElementById('btnStart').disabled   = d.running;
+  document.getElementById('btnStop').disabled    = !d.running;
+  document.getElementById('btnResume').disabled  = !d.awaiting_human;
+
+  // Progreso
+  const pct = d.total > 0 ? Math.round(d.progress / d.total * 100) : 0;
+  document.getElementById('progressPct').textContent = d.total > 0 ? `${pct}%` : '—';
+  const fill = document.getElementById('barFill');
+  if (d.running && d.total === 0) {
+    fill.className = 'bar-fill indeterminate';
+  } else {
+    fill.className = 'bar-fill';
+    fill.style.width = `${pct}%`;
+  }
+  document.getElementById('taskText').textContent = d.current_task || 'Listo para iniciar';
+
+  // KPIs
+  document.getElementById('kpiStations').textContent   = (d.stations||[]).length;
+  document.getElementById('kpiDownloaded').textContent = (d.downloaded||[]).length;
+  document.getElementById('kpiErrors').textContent     = (d.errors||[]).length;
+
+  // Meta
+  const regionSel = document.getElementById('region');
+  const regionLabel = regionSel.options[regionSel.selectedIndex]?.text || '—';
+  document.getElementById('mRegion').textContent   = regionLabel;
+  document.getElementById('mCat').textContent      = d.current_category || '—';
+  document.getElementById('mStation').textContent  = d.current_station  || '—';
+  document.getElementById('mPeriod').textContent   = d.current_period   || '—';
+  document.getElementById('mProgress').textContent = `${d.progress||0} / ${d.total||0}`;
+
+  // Archivos — solo actualizar si hubo descargas nuevas
+  if ((d.downloaded||[]).length > 0) {
+    loadFiles();
+  }
+}
+
+// ── LOG ───────────────────────────────────────────────────────────────────────
+function renderLog(entries) {
+  if (entries.length <= lastLogLen) return;
+  const box = document.getElementById('logBox');
+  for (let i = lastLogLen; i < entries.length; i++) {
+    const e   = entries[i];
+    const div = document.createElement('div');
+    div.className = 'log-entry';
+    div.innerHTML = `<span class="log-time">${esc(e.time)}</span>`
+                  + `<span class="log-msg ${esc(e.level)}">${esc(e.msg)}</span>`;
+    box.appendChild(div);
+  }
+  lastLogLen = entries.length;
+  if (autoScroll) box.scrollTop = box.scrollHeight;
+}
+
+// ── ESTACIONES ────────────────────────────────────────────────────────────────
+function typeBadgeClass(type) {
+  const t = (type||'').toLowerCase();
+  if (t.includes('conv') && t.includes('met')) return 'conv-met';
+  if (t.includes('auto') && t.includes('met')) return 'auto-met';
+  if (t.includes('conv') && t.includes('hid')) return 'conv-hid';
+  if (t.includes('auto') && t.includes('hid')) return 'auto-hid';
+  return 'conv-met';
+}
+function typeBadgeLabel(type) {
+  const t = (type||'').toLowerCase();
+  if (t.includes('conv') && t.includes('met')) return 'Convencional - Meteorológica';
+  if (t.includes('auto') && t.includes('met')) return 'Automática - Meteorológica';
+  if (t.includes('conv') && t.includes('hid')) return 'Convencional - Hidrológica';
+  if (t.includes('auto') && t.includes('hid')) return 'Automática - Hidrológica';
+  return type||'';
+}
+
+function renderStations(stations) {
+  allStations = stations;
+  document.getElementById('stationCount').textContent = `${stations.length} estaciones`;
+  filterStations();
+}
+
+function filterStations() {
+  const query = (document.getElementById('stationSearch').value||'').toLowerCase();
+  const filtered = allStations.filter(s => {
+    const hay = ((s.code||'') + (s.type_guess||'') + (s.name||'') + (s.label||'')).toLowerCase();
+    return hay.includes(query);
+  });
+
+  const box = document.getElementById('stationsList');
+  if (!filtered.length) {
+    box.innerHTML = `<div style="padding:20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;">${allStations.length ? 'Sin resultados para esa búsqueda.' : 'Inicia el análisis para ver las estaciones.'}</div>`;
+    return;
+  }
+
+  box.innerHTML = filtered.map(s => {
+    const bc   = typeBadgeClass(s.type_guess);
+    const bl   = typeBadgeLabel(s.type_guess);
+    const isSel = s.url === selectedUrl;
+    return `<div class="station-item${isSel?' selected':''}" data-url="${esc(s.url)}" onclick="selectStation(${JSON.stringify(s).replaceAll('"','&quot;')})">
+      <span class="station-code">${esc(s.code||s.index||'—')}</span>
+      <span class="station-type">${esc(s.type_guess||'Sin tipo')}</span>
+      <span class="type-badge ${bc}">${bl}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── ÁRBOL DE ARCHIVOS ─────────────────────────────────────────────────────────
+async function loadFiles() {
+  const dir = document.getElementById('outputDir').value || 'descargas_senamhi';
+  const r   = await fetch(`${API}/api/files?dir=${encodeURIComponent(dir)}`).catch(()=>null);
+  if (!r) return;
+  const files = await r.json();
+  document.getElementById('totalFilesLabel').textContent = `${files.length} archivos`;
+  renderFileTree(files);
+}
+
+function renderFileTree(files) {
+  const tree = document.getElementById('filesTree');
+  if (!files.length) {
+    tree.innerHTML = `<div class="empty-tree"><div class="icon">🗂️</div><div>Sin archivos aún.</div><div style="color:var(--muted);font-size:10px;">Los CSV aparecerán aquí agrupados por región y estación.</div></div>`;
+    return;
+  }
+
+  // Construir jerarquía: región → carpeta_estacion → archivos
+  const hierarchy = {};
+  for (const f of files) {
+    const parts = f.rel_path.split(/[/\\]/);
+    const region = parts[0] || 'sin_region';
+    const stationKey = parts.length >= 3
+      ? `${parts[1]}/${parts[2]}`
+      : (parts[1] || 'sin_estacion');
+    const fname = parts[parts.length-1];
+
+    if (!hierarchy[region]) hierarchy[region] = {};
+    if (!hierarchy[region][stationKey]) hierarchy[region][stationKey] = [];
+    hierarchy[region][stationKey].push({...f, displayName: fname});
+  }
+
+  let html = '';
+  for (const [region, stations] of Object.entries(hierarchy)) {
+    const totalFiles = Object.values(stations).flat().length;
+    const rid = `r_${region.replace(/[^a-z0-9]/gi,'_')}`;
+    html += `<div class="region-group">
+      <div class="region-header" onclick="toggleSection('${rid}')">
+        <span class="region-arrow" id="arr_${rid}">▶</span>
+        <span class="region-name">📂 ${esc(region.toUpperCase())}</span>
+        <span class="region-count">${totalFiles} CSV · ${Object.keys(stations).length} estaciones</span>
+      </div>
+      <div class="station-group" id="${rid}">`;
+
+    for (const [stationKey, stFiles] of Object.entries(stations)) {
+      const sid = `s_${(region+stationKey).replace(/[^a-z0-9]/gi,'_')}`;
+      const stLabel = stationKey.includes('/') ? stationKey.split('/').pop() : stationKey;
+      const typeLabel = stationKey.includes('/') ? stationKey.split('/')[0].replace(/_/g,' ') : '';
+      html += `<div>
+        <div class="station-header" onclick="toggleSection('${sid}')">
+          <span class="arrow" id="arr_${sid}">▶</span>
+          <span class="station-sname">📄 ${esc(stLabel)}</span>
+          ${typeLabel ? `<span class="station-nfiles" style="color:var(--muted);font-size:10px;">${esc(typeLabel)}</span>` : ''}
+          <span class="station-nfiles">${stFiles.length} archivos</span>
+        </div>
+        <div class="files-group" id="${sid}">`;
+      for (const f of stFiles) {
+        html += `<div class="file-row">
+          <span class="file-icon">📊</span>
+          <span class="file-name">${esc(f.displayName)}</span>
+          <span class="file-size">${fmtSize(f.size)}</span>
+          <a class="file-dl" href="/api/download?path=${encodeURIComponent(f.path)}" download>↓ CSV</a>
+        </div>`;
+      }
+      html += `</div></div>`;
+    }
+    html += `</div></div>`;
+  }
+  tree.innerHTML = html;
+}
+
+function toggleSection(id) {
+  const el  = document.getElementById(id);
+  const arr = document.getElementById(`arr_${id}`);
+  if (!el) return;
+  const isOpen = el.classList.toggle('open');
+  if (arr) arr.classList.toggle('open', isOpen);
+}
+
+// ── UTILS ─────────────────────────────────────────────────────────────────────
+function esc(s='') {
+  return String(s)
+    .replaceAll('&','&amp;').replaceAll('<','&lt;')
+    .replaceAll('>','&gt;').replaceAll('"','&quot;');
+}
+function fmtSize(b) {
+  if (b<1024) return `${b}B`;
+  if (b<1048576) return `${(b/1024).toFixed(1)}KB`;
+  return `${(b/1048576).toFixed(1)}MB`;
+}
+
+// Auto-scroll control
+document.addEventListener('DOMContentLoaded', () => {
+  const lb = document.getElementById('logBox');
+  lb.addEventListener('scroll', () => {
+    autoScroll = lb.scrollTop + lb.clientHeight >= lb.scrollHeight - 12;
+  });
+  init();
+  loadFiles();
+});
+</script>
+</body>
+</html>

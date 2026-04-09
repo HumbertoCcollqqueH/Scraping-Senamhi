@@ -1,0 +1,318 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SENAMHI</title>
+    <link href="../../../../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../../../public/lib/dataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../../../../public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../../public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var dat = '';;
+        if (dat == '') {
+            $('#iframeestatipo').css('display', 'none');
+            $('#iframecaptcha').css('display', 'block');
+
+        } else {
+            $('#iframeestatipo').css('display', 'block');
+            $('#iframecaptcha').css('display', 'none');
+        }
+    </script>
+                <script type="text/javascript">
+                const dataPromedioDiario = [, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ];
+                dataPromedioDiario.forEach((value, index) => {
+                    if (value !== null) {
+                        dataPromedioDiario[index] = Math.round(value * 100) / 100;
+                    }
+                });
+
+                $(function() {
+                    $('#container').highcharts({
+                        title: {
+                            text: 'ESTACI\u00D3N: ENAPU PERU'
+                        },
+                        subtitle: {
+                            text: "Dep.: LORETO Prov.: MAYNAS Dist.: PUNCHANA<br>Lat.: 3°43'38'' S Long.: 73°14'13'' W Alt.: 126 msnm.<br>Tipo: Convencional - Hidrol\u00F3gica<br>C\u00F3digo: 240102"
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: ['2023-08-01','2023-08-02','2023-08-03','2023-08-04','2023-08-05','2023-08-06','2023-08-07','2023-08-08','2023-08-09','2023-08-10','2023-08-11','2023-08-12','2023-08-13','2023-08-14','2023-08-15','2023-08-16','2023-08-17','2023-08-18','2023-08-19','2023-08-20','2023-08-21','2023-08-22','2023-08-23','2023-08-24','2023-08-25','2023-08-26','2023-08-27','2023-08-28','2023-08-29','2023-08-30','2023-08-31',]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Nivel promedio diario (m)'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: ' m'
+                        },
+                        series: [{
+                            name: 'Nivel promedio diario (m)',
+                            data: dataPromedioDiario
+                        }]
+                    });
+                });
+            </script>
+            <script src="../../../../public/lib/highcharts/highcharts-4.1.7.js"></script>
+</head>
+
+
+<!-- EMPIEZA RENDERIZADO -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="grafico-tab" data-toggle="tab" href="#grafico" role="tab" aria-selected="false">Gráfico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tabla-tab" data-toggle="tab" href="#tabla" role="tab" aria-selected="true">Tabla</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade" id="grafico" role="tabpanel">
+                        <div id="container" style="min-width: 300px; height: 300px; margin: 0 auto;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1340px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1340" height="300"><desc>Created with Highcharts 4.1.7</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1293" height="144"></rect></clipPath></defs><rect x="0" y="0" width="1340" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 37 245.5 L 1330 245.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="27" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 27 173)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" visibility="visible" y="173"><tspan>Nivel promedio diario (m)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(37,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 0 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(37,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""></g></g><text x="670" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1276px;" y="24"><tspan>ESTACIÓN: ENAPU PERU</tspan></text><text x="670" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1276px;" y="41"><tspan>Dep.: LORETO Prov.: MAYNAS Dist.: PUNCHANA</tspan><tspan x="670" dy="14">Lat.: 3°43'38'' S Long.: 73°14'13'' W Alt.: 126 msnm.</tspan><tspan x="670" dy="14">Tipo: Convencional - Hidrológica</tspan><tspan x="670" dy="14">Código: 240102</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(582,257)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#7cb5ec" stroke-width="2"></path><path fill="#7cb5ec" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.6719999999999997 15 2.6719999999999997 7 8 7 Z"></path><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15"><tspan>Nivel promedio diario (m)</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"></text></g></svg></div></div>
+                    </div>
+
+                    <div class="tab-pane fade active show" id="tabla" role="tabpanel">
+                        <div id="captcha-section" style="display: none;">
+                            <div class="alert alert-info mt-3" role="alert">
+                                Por favor, verifica que no eres un robot para continuar.
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB2uOxvM6ouZ9Hqw" data-theme="light" data-size="normal" data-callback="onCaptchaSuccess">
+                            <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-ewrb6_response" value="1.OvyCBN83fICiN7Nf6S7srJdSW1so53P_tvwZTjJnbejwyepv5nwGF9YjrL3oAJYR9B66eDmk3tiFziQGJ4Y4XL79hLRgKJohrkK3EQoHL0nYJ2OiG86kQSm32y0QXZckCqfcZYac3LoToGWmMAfnKDl_myLnW9PTF14UgV99t49eEN2zrSf1efqegr-MH-FVi1LOh59Xt8R_ZA92gKvLiSTE87liPx2VdhstPZpi70j_tYEAqlTdPwU2KSxsWln4OzPpYygBQPvUa3NJPv0UXLKYh21ttFwL6IghdguHjDMq6qKjpzaf8mgSP2tQJXG4iJuLiMXdQZgzA8QtG40eBstUfGXaHhRRBFDYd8zrxL6swkGaDtcOgIN_1Vyr-FVFQG2JAnqsjG05yXufbouF5xGnYj1Aa5Odb7B2fs0c_0w.fcukA9d8YkxFyUu-wnuNmQ.c747ded0ca4a1b6fc644a35285f98586df761734de0206ca81ece2a3947cf551"></div></div>
+                        </div>
+
+                        <div id="data-section" style="">
+                            <form name="frmData" id="frmData" method="post" action="__dt_est_tp_0s3n@mH1.php" target="contenedor">
+                                <table width="750" border="0" class="body01" bordercolor="#999999" cellpadding="1" cellspacing="1" align="center">
+                                    <tbody><tr>
+                                        <td colspan="7" height="5"></td>
+                                    </tr>
+                                    <tr aling="center" bgcolor="#003366">
+                                        <td colspan="7" bgcolor="#666666">
+                                            <div align="center">
+                                                <b>
+                                                    <font color="#F4F4F4">Estación
+                                                        : ENAPU PERU                                                    </font>
+                                                </b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Departamento&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>LORETO</td>
+                                        <td>
+                                            <div align="right">Provincia&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> MAYNAS</td>
+                                        <td>
+                                            <div align="right">Distrito&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> PUNCHANA</td>
+                                        <td>
+                                            <div align="center">
+                                                Ir : <select name="CBOFiltro" id="CBOFiltro" class="dire" onchange="javascript:submit()"><option value="201706" selected="">2017-06</option>
+<option value="201707" selected="">2017-07</option>
+<option value="201708" selected="">2017-08</option>
+<option value="201709" selected="">2017-09</option>
+<option value="201710" selected="">2017-10</option>
+<option value="201711" selected="">2017-11</option>
+<option value="201712" selected="">2017-12</option>
+<option value="201801" selected="">2018-01</option>
+<option value="201802" selected="">2018-02</option>
+<option value="201803" selected="">2018-03</option>
+<option value="201804" selected="">2018-04</option>
+<option value="201805" selected="">2018-05</option>
+<option value="201806" selected="">2018-06</option>
+<option value="201807" selected="">2018-07</option>
+<option value="201808" selected="">2018-08</option>
+<option value="201809" selected="">2018-09</option>
+<option value="201810" selected="">2018-10</option>
+<option value="201811" selected="">2018-11</option>
+<option value="201812" selected="">2018-12</option>
+<option value="201901" selected="">2019-01</option>
+<option value="201902" selected="">2019-02</option>
+<option value="201904" selected="">2019-04</option>
+<option value="201906" selected="">2019-06</option>
+<option value="201907" selected="">2019-07</option>
+<option value="201908" selected="">2019-08</option>
+<option value="201909" selected="">2019-09</option>
+<option value="201910" selected="">2019-10</option>
+<option value="201911" selected="">2019-11</option>
+<option value="201912" selected="">2019-12</option>
+<option value="202001" selected="">2020-01</option>
+<option value="202002" selected="">2020-02</option>
+<option value="202003" selected="">2020-03</option>
+<option value="202004" selected="">2020-04</option>
+<option value="202005" selected="">2020-05</option>
+<option value="202006" selected="">2020-06</option>
+<option value="202007" selected="">2020-07</option>
+<option value="202008" selected="">2020-08</option>
+<option value="202009" selected="">2020-09</option>
+<option value="202010" selected="">2020-10</option>
+<option value="202011" selected="">2020-11</option>
+<option value="202012" selected="">2020-12</option>
+<option value="202101" selected="">2021-01</option>
+<option value="202102" selected="">2021-02</option>
+<option value="202103" selected="">2021-03</option>
+<option value="202104" selected="">2021-04</option>
+<option value="202105" selected="">2021-05</option>
+<option value="202106" selected="">2021-06</option>
+<option value="202107" selected="">2021-07</option>
+<option value="202108" selected="">2021-08</option>
+<option value="202109" selected="">2021-09</option>
+<option value="202110" selected="">2021-10</option>
+<option value="202111" selected="">2021-11</option>
+<option value="202112" selected="">2021-12</option>
+<option value="202201" selected="">2022-01</option>
+<option value="202202" selected="">2022-02</option>
+<option value="202203" selected="">2022-03</option>
+<option value="202204" selected="">2022-04</option>
+<option value="202205" selected="">2022-05</option>
+<option value="202206" selected="">2022-06</option>
+<option value="202308" selected="">2023-08</option>
+</select>                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Latitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>3°43'38'' S </td>
+                                        <td>
+                                            <div align="right">Longitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>73°14'13'' W </td>
+                                        <td>
+                                            <div align="right">Altitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>126 msnm.</td>
+
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Tipo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>Convencional - Hidrológica</td>
+                                        <td>
+                                            <div align="right">Codigo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>240102</td>
+                                        <td>
+                                            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="1.OvyCBN83fICiN7Nf6S7srJdSW1so53P_tvwZTjJnbejwyepv5nwGF9YjrL3oAJYR9B66eDmk3tiFziQGJ4Y4XL79hLRgKJohrkK3EQoHL0nYJ2OiG86kQSm32y0QXZckCqfcZYac3LoToGWmMAfnKDl_myLnW9PTF14UgV99t49eEN2zrSf1efqegr-MH-FVi1LOh59Xt8R_ZA92gKvLiSTE87liPx2VdhstPZpi70j_tYEAqlTdPwU2KSxsWln4OzPpYygBQPvUa3NJPv0UXLKYh21ttFwL6IghdguHjDMq6qKjpzaf8mgSP2tQJXG4iJuLiMXdQZgzA8QtG40eBstUfGXaHhRRBFDYd8zrxL6swkGaDtcOgIN_1Vyr-FVFQG2JAnqsjG05yXufbouF5xGnYj1Aa5Odb7B2fs0c_0w.fcukA9d8YkxFyUu-wnuNmQ.c747ded0ca4a1b6fc644a35285f98586df761734de0206ca81ece2a3947cf551">
+                                            <input name="estaciones" id="estaciones" type="hidden" value="240102">
+                                            <input name="t_e" id="t_e" type="hidden" value="H">
+                                            <input name="estado" id="estado" type="hidden" value="DIFERIDO">
+                                            <input name="cod_old" id="cod_old" type="hidden" value="240101">
+                                            <input name="cate_esta" id="cate_esta" type="hidden" value="HLM">
+                                            <input name="soloAlt" id="soloAlt" type="hidden" value="126">
+                                        </td>
+
+                                    </tr>
+                                </tbody></table>
+                                <table width="450" align="center">
+                                    <tbody><tr>
+                                        <td>
+                                            <div id="frame">
+                                                <iframe id="contenedor" name="contenedor" width="750" marginwidth="0" height="900" marginheight="0" scrolling="YES" align="center" frameborder="0" cd_frame_id_="3be702b034fdad1e4b8fdc88b65ee1b5">
+                                                </iframe>
+                                            </div>
+                                        </td>
+                                    </tr><tr>
+                                </tr></tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script>
+        function onCaptchaSuccess(token) {
+            document.getElementById("cf-turnstile-response").value = token;
+
+            $('#captcha-section').hide();
+            $('#data-section').show();
+
+            document.getElementById("frmData").submit();
+        }
+
+        function loadStationData(token) {
+            var iframe = document.getElementById("contenedor");
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "__dt_est_tp_0s3n@mH1.php");
+
+            var inputToken = document.createElement("input");
+            inputToken.setAttribute("type", "hidden");
+            inputToken.setAttribute("name", "cf-turnstile-response");
+            inputToken.setAttribute("value", token);
+            form.appendChild(inputToken);
+
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "estaciones");
+            input1.setAttribute("value", '240102');
+            form.appendChild(input1);
+
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            input2.setAttribute("name", "CBOFiltro");
+            input2.setAttribute("value", '202308');
+            form.appendChild(input2);
+
+            var input3 = document.createElement("input");
+            input3.setAttribute("type", "text");
+            input3.setAttribute("name", "t_e");
+            input3.setAttribute("value", 'H');
+            form.appendChild(input3);
+
+            var input4 = document.createElement("input");
+            input4.setAttribute("type", "text");
+            input4.setAttribute("name", "estado");
+            input4.setAttribute("value", 'DIFERIDO');
+            form.appendChild(input4);
+
+            var input5 = document.createElement("input");
+            input5.setAttribute("type", "text");
+            input5.setAttribute("name", "cod_old");
+            input5.setAttribute("value", '240101');
+            form.appendChild(input5);
+
+            var input6 = document.createElement("input");
+            input6.setAttribute("type", "text");
+            input6.setAttribute("name", "cod_old");
+            input6.setAttribute("value", 'HLM');
+            form.appendChild(input6);
+
+            var input7 = document.createElement("input");
+            input7.setAttribute("type", "text");
+            input7.setAttribute("name", "alt");
+            input7.setAttribute("value", '126');
+            form.appendChild(input7);
+
+            iframe.contentDocument.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+
+</body></html>

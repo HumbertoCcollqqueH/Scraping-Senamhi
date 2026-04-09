@@ -1,0 +1,29 @@
+﻿AÑO / MES / DÍA,TEMPERATURA (°C),HUMEDAD RELATIVA (%),PRECIPITACIÓN (mm/día)
+MAX,MIN,TOTAL
+2024-12-01,,,,0.0
+2024-12-02,,,,0.0
+2024-12-03,,,,0.0
+2024-12-04,,,,0.0
+2024-12-05,,,,0.0
+2024-12-06,,,,0.0
+2024-12-07,,,,40.6
+2024-12-08,,,,0.0
+2024-12-09,,,,0.0
+2024-12-10,,,,0.0
+2024-12-11,,,,0.0
+2024-12-12,,,,0.0
+2024-12-13,,,,0.0
+2024-12-14,,,,0.0
+2024-12-15,,,,20.4
+2024-12-16,,,,10.7
+2024-12-17,,,,0.0
+2024-12-18,,,,20.5
+2024-12-19,,,,0.0
+2024-12-20,,,,0.0
+2024-12-21,,,,0.0
+2024-12-22,,,,20.5
+2024-12-23,,,,0.0
+2024-12-24,,,,0.0
+2024-12-25,,,,0.0
+2024-12-26,,,,10.8
+2024-12-27,,,,"Fatal error: Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php:2851 Stack trace: #0 /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php(2851): number_format() #1 {main} thrown in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php on line 2851"

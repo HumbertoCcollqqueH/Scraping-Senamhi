@@ -1,0 +1,5 @@
+﻿AÑO / MES / DÍA,TEMPERATURA (°C),HUMEDAD RELATIVA (%),PRECIPITACIÓN (mm/día)
+MAX,MIN,TOTAL
+2023-06-01,,,,5.7
+2023-06-02,,,,0.0
+2023-06-03,,,,"Fatal error: Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php:2851 Stack trace: #0 /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php(2851): number_format() #1 {main} thrown in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php on line 2851"

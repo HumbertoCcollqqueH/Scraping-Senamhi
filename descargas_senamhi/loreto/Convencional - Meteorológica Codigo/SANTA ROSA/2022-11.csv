@@ -1,0 +1,32 @@
+﻿AÑO / MES / DÍA,TEMPERATURA (°C),HUMEDAD RELATIVA (%),PRECIPITACIÓN (mm/día)
+MAX,MIN,TOTAL
+2022-11-01,,,,71.5
+2022-11-02,,,,0.0
+2022-11-03,,,,0.0
+2022-11-04,,,,0.0
+2022-11-05,,,,0.0
+2022-11-06,,,,28.0
+2022-11-07,,,,0.0
+2022-11-08,,,,0.0
+2022-11-09,,,,5.1
+2022-11-10,,,,0.0
+2022-11-11,,,,0.0
+2022-11-12,,,,0.0
+2022-11-13,,,,50.0
+2022-11-14,,,,0.1
+2022-11-15,,,,46.0
+2022-11-16,,,,76.0
+2022-11-17,,,,1.0
+2022-11-18,,,,0.0
+2022-11-19,,,,13.1
+2022-11-20,,,,0.0
+2022-11-21,,,,14.3
+2022-11-22,,,,102.4
+2022-11-23,,,,0.0
+2022-11-24,,,,0.0
+2022-11-25,,,,31.1
+2022-11-26,,,,4.3
+2022-11-27,,,,24.0
+2022-11-28,,,,0.0
+2022-11-29,,,,0.0
+2022-11-30,,,,"Fatal error: Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php:2851 Stack trace: #0 /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php(2851): number_format() #1 {main} thrown in /var/www/html/mapas/mapa-estaciones-2/__dt_est_tp_0s3n@mH1.php on line 2851"

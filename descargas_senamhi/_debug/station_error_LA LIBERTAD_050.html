@@ -1,0 +1,374 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SENAMHI</title>
+    <link href="../../../../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../../../public/lib/dataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../../../../public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../../public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var dat = '';;
+        if (dat == '') {
+            $('#iframeestatipo').css('display', 'none');
+            $('#iframecaptcha').css('display', 'block');
+
+        } else {
+            $('#iframeestatipo').css('display', 'block');
+            $('#iframecaptcha').css('display', 'none');
+        }
+    </script>
+            
+            <script type="text/javascript">
+                $(function() {
+                    console.log("Data1 (Temp):", [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ]);
+                    console.log("Data2 (Temp):", [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ]);
+                    console.log("Data3 (Precip):", [10.8, 4.4, 5.2, 5.5, 0.0, 2.4, 0.0, 35.6, 10.2, 8.6, 0.0, 0.0, 0.0, 82.2, 37.8, 0.0, 4.5, 0.0, 0.0, 21.0, 2.7, 8.1, 3.9, 5.2, 2.2, 0.0, 80.0, 5.2, 0.0, 0.0, 0.0, ]);
+                    $('#container').highcharts({
+                        chart: {
+                            zoomType: 'xy'
+                        },
+                        title: {
+                            text: 'ESTACI\u00D3N: LA LIBERTAD'
+                        },
+                        subtitle: {
+                            text: "Dep.: LORETO Prov.: MAYNAS Dist.: MAZAN<br>Lat.: 3°29'10.69'' S Long.: 73°14'1.47'' W Alt.: 100 msnm.<br>Tipo: Convencional - Meteorol\u00F3gica<br>C\u00F3digo: 103014",
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: [{
+                            categories: ['2026-01-29','2026-01-30','2026-01-31','2026-02-01','2026-02-02','2026-02-03','2026-02-04','2026-02-05','2026-02-06','2026-02-07','2026-02-08','2026-02-09','2026-02-10','2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20','2026-02-21','2026-02-22','2026-02-23','2026-02-24','2026-02-25','2026-02-26','2026-02-27','2026-02-28',],
+                            crosshair: true
+                        }],
+                        yAxis: [{
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: Highcharts.getOptions().colors[1]
+                                }
+                            },
+                            title: {
+                                text: '<b>Temperatura</b> (\u00B0C)',
+                                style: {
+                                    color: Highcharts.getOptions().colors[1]
+                                }
+                            }
+                        }, {
+                            title: {
+                                text: '<b>Precipitaci\u00F3n</b> (mm/d\u00EDa)',
+                                style: {
+                                    color: Highcharts.getOptions().colors[0]
+                                },
+                                rotation: 270
+                            },
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: Highcharts.getOptions().colors[0]
+                                }
+                            },
+                            opposite: true
+                        }],
+                        tooltip: {
+                            shared: true
+                        },
+                        series: [{
+                            name: 'Precipitaci\u00F3n',
+                            type: 'column',
+                            yAxis: 1,
+                            data: [10.8, 4.4, 5.2, 5.5, 0.0, 2.4, 0.0, 35.6, 10.2, 8.6, 0.0, 0.0, 0.0, 82.2, 37.8, 0.0, 4.5, 0.0, 0.0, 21.0, 2.7, 8.1, 3.9, 5.2, 2.2, 0.0, 80.0, 5.2, 0.0, 0.0, 0.0, ],
+                            tooltip: {
+                                valueSuffix: ' mm'
+                            }
+
+                        }, {
+                            name: 'Temp. max',
+                            lineWidth: 1,
+                            type: 'spline',
+                            marker: {
+                                radius: 2,
+                                fillColor: 'white',
+                                lineWidth: 2,
+                                lineColor: 'red'
+                            },
+                            color: 'rgba(247,10,08, .9)',
+                            data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ],
+                            tooltip: {
+                                valueSuffix: '\u00B0C'
+                            }
+                        }, {
+                            name: 'Temp. min',
+                            lineWidth: 1,
+                            type: 'spline',
+                            marker: {
+                                radius: 2,
+                                fillColor: 'white',
+                                lineWidth: 2,
+                                lineColor: 'blue'
+                            },
+                            color: 'rgba(48,69,232,.9)',
+                            data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ],
+                            tooltip: {
+                                valueSuffix: '\u00B0C'
+                            }
+                        }]
+                    });
+                });
+            </script>
+            <script src="../../../../public/lib/highcharts/highcharts-4.1.7.js"></script>
+</head>
+
+
+<!-- EMPIEZA RENDERIZADO -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="grafico-tab" data-toggle="tab" href="#grafico" role="tab" aria-selected="false">Gráfico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tabla-tab" data-toggle="tab" href="#tabla" role="tab" aria-selected="true">Tabla</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade" id="grafico" role="tabpanel">
+                        <div id="container" style="min-width: 300px; height: 300px; margin: 0 auto;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1340px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1340" height="300"><desc>Created with Highcharts 4.1.7</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1193" height="75"></rect></clipPath></defs><rect x="0" y="0" width="1340" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 0 0" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 74 176.5 L 1267 176.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 74 139.5 L 1267 139.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 74 100.5 L 1267 100.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 111.5 176 L 111.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 150.5 176 L 150.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 188.5 176 L 188.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 227.5 176 L 227.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 265.5 176 L 265.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 304.5 176 L 304.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 342.5 176 L 342.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 381.5 176 L 381.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 419.5 176 L 419.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 458.5 176 L 458.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 496.5 176 L 496.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 535.5 176 L 535.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 573.5 176 L 573.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 612.5 176 L 612.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 650.5 176 L 650.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 689.5 176 L 689.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 727.5 176 L 727.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 766.5 176 L 766.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 804.5 176 L 804.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 843.5 176 L 843.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 881.5 176 L 881.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 920.5 176 L 920.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 958.5 176 L 958.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 997.5 176 L 997.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1035.5 176 L 1035.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1074.5 176 L 1074.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1112.5 176 L 1112.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1151.5 176 L 1151.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1189.5 176 L 1189.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1228.5 176 L 1228.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1267.5 176 L 1267.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 73.5 176 L 73.5 186" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 74 176.5 L 1267 176.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="26.671875" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 26.671875 138.5)" class=" highcharts-yaxis-title" style="color:#434348;fill:#434348;" visibility="visible" y="138.5"><tspan style="font-weight:bold">Temperatura</tspan><tspan dx="0"> (°C)</tspan></text></g><g class="highcharts-axis" zIndex="2"><text x="1312.9111328125" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 1312.9111328125 138.5)" class=" highcharts-yaxis-title" style="color:#7cb5ec;fill:#7cb5ec;" visibility="visible" y="138.5"><tspan style="font-weight:bold">Precipitación</tspan><tspan dx="0"> (mm/día)</tspan></text></g><path fill="none" d="M 362.5 101 L 362.5 176" stroke="rgba(155,200,255,0.2)" stroke-width="38.483870967741936" zIndex="2" visibility="hidden"></path><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" style="" clip-path="url(#highcharts-1)"><rect x="9.5" y="67.5" width="19" height="8" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="47.5" y="72.5" width="19" height="3" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="86.5" y="71.5" width="19" height="4" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="124.5" y="71.5" width="19" height="4" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="163.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="201.5" y="73.5" width="19" height="2" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="240.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="278.5" y="48.5" width="19" height="27" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="317.5" y="67.5" width="19" height="8" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="355.5" y="69.5" width="19" height="6" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="394.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="432.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="471.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="509.5" y="13.5" width="19" height="62" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="548.5" y="47.5" width="19" height="28" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="586.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="625.5" y="72.5" width="19" height="3" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="663.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="702.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="740.5" y="59.5" width="19" height="16" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="779.5" y="73.5" width="19" height="2" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="817.5" y="69.5" width="19" height="6" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="856.5" y="72.5" width="19" height="3" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="894.5" y="71.5" width="19" height="4" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="933.5" y="73.5" width="19" height="2" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="971.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1010.5" y="15.5" width="19" height="60" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1048.5" y="71.5" width="19" height="4" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1087.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1125.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="1164.5" y="75.5" width="19" height="0" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" clip-path="none"></g><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 0 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""></g><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 0 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(74,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""></g></g><text x="670" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1276px;" y="24"><tspan>ESTACIÓN: LA LIBERTAD</tspan></text><text x="670" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1276px;" y="41"><tspan>Dep.: LORETO Prov.: MAYNAS Dist.: MAZAN</tspan><tspan x="670" dy="14">Lat.: 3°29'10.69'' S Long.: 73°14'1.47'' W Alt.: 100 msnm.</tspan><tspan x="670" dy="14">Tipo: Convencional - Meteorológica</tspan><tspan x="670" dy="14">Código: 103014</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(510,256)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15">Precipitación</text><rect x="0" y="4" width="16" height="12" zIndex="3" fill="#7cb5ec"></rect></g><g class="highcharts-legend-item" zIndex="1" transform="translate(124.966796875,3)"><path fill="none" d="M 0 11 L 16 11" stroke="rgba(247,10,08, .9)" stroke-width="1"></path><path fill="white" d="M 8 9 C 10.664 9 10.664 13 8 13 C 5.336 13 5.336 9 8 9 Z" stroke="red" stroke-width="2"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>Temp. max</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(229.548828125,3)"><path fill="none" d="M 0 11 L 16 11" stroke="rgba(48,69,232,.9)" stroke-width="1"></path><path fill="white" d="M 8 9 L 10 11 8 13 6 11 Z" stroke="blue" stroke-width="2"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>Temp. min</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="95.83466034822163" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 95.83466034822163 192)" y="192" opacity="1"><tspan>2026-01-29</tspan></text><text x="134.31853131596358" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 134.31853131596358 192)" y="192" opacity="1"><tspan>2026-01-30</tspan></text><text x="172.80240228370553" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 172.80240228370553 192)" y="192" opacity="1"><tspan>2026-01-31</tspan></text><text x="211.28627325144745" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 211.28627325144745 192)" y="192" opacity="1"><tspan>2026-02-01</tspan></text><text x="249.77014421918938" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 249.77014421918938 192)" y="192" opacity="1"><tspan>2026-02-02</tspan></text><text x="288.25401518693127" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 288.25401518693127 192)" y="192" opacity="1"><tspan>2026-02-03</tspan></text><text x="326.7378861546732" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 326.7378861546732 192)" y="192" opacity="1"><tspan>2026-02-04</tspan></text><text x="365.22175712241517" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 365.22175712241517 192)" y="192" opacity="1"><tspan>2026-02-05</tspan></text><text x="403.7056280901571" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 403.7056280901571 192)" y="192" opacity="1"><tspan>2026-02-06</tspan></text><text x="442.18949905789907" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 442.18949905789907 192)" y="192" opacity="1"><tspan>2026-02-07</tspan></text><text x="480.67337002564096" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 480.67337002564096 192)" y="192" opacity="1"><tspan>2026-02-08</tspan></text><text x="519.1572409933829" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 519.1572409933829 192)" y="192" opacity="1"><tspan>2026-02-09</tspan></text><text x="557.6411119611248" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 557.6411119611248 192)" y="192" opacity="1"><tspan>2026-02-10</tspan></text><text x="596.1249829288668" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 596.1249829288668 192)" y="192" opacity="1"><tspan>2026-02-11</tspan></text><text x="634.6088538966087" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 634.6088538966087 192)" y="192" opacity="1"><tspan>2026-02-12</tspan></text><text x="673.0927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 673.0927248643507 192)" y="192" opacity="1"><tspan>2026-02-13</tspan></text><text x="711.5765958320926" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 711.5765958320926 192)" y="192" opacity="1"><tspan>2026-02-14</tspan></text><text x="750.0604667998346" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 750.0604667998346 192)" y="192" opacity="1"><tspan>2026-02-15</tspan></text><text x="788.5443377675765" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 788.5443377675765 192)" y="192" opacity="1"><tspan>2026-02-16</tspan></text><text x="827.0282087353185" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 827.0282087353185 192)" y="192" opacity="1"><tspan>2026-02-17</tspan></text><text x="865.5120797030603" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 865.5120797030603 192)" y="192" opacity="1"><tspan>2026-02-18</tspan></text><text x="903.9959506708022" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 903.9959506708022 192)" y="192" opacity="1"><tspan>2026-02-19</tspan></text><text x="942.4798216385442" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 942.4798216385442 192)" y="192" opacity="1"><tspan>2026-02-20</tspan></text><text x="980.9636926062861" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 980.9636926062861 192)" y="192" opacity="1"><tspan>2026-02-21</tspan></text><text x="1019.447563574028" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1019.447563574028 192)" y="192" opacity="1"><tspan>2026-02-22</tspan></text><text x="1057.93143454177" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1057.93143454177 192)" y="192" opacity="1"><tspan>2026-02-23</tspan></text><text x="1096.4153055095119" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1096.4153055095119 192)" y="192" opacity="1"><tspan>2026-02-24</tspan></text><text x="1134.8991764772538" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1134.8991764772538 192)" y="192" opacity="1"><tspan>2026-02-25</tspan></text><text x="1173.3830474449958" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1173.3830474449958 192)" y="192" opacity="1"><tspan>2026-02-26</tspan></text><text x="1211.8669184127377" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1211.8669184127377 192)" y="192" opacity="1"><tspan>2026-02-27</tspan></text><text x="1250.3507893804797" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1250.3507893804797 192)" y="192" opacity="1"><tspan>2026-02-28</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="0" style="color:#434348;cursor:default;font-size:11px;fill:#434348;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="-9999">NaN</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="1282" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="179" opacity="1">0</text><text x="1282" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="141" opacity="1">50</text><text x="1282" style="color:#7cb5ec;cursor:default;font-size:11px;fill:#7cb5ec;width:432px;text-overflow:clip;" text-anchor="start" transform="translate(0,0)" y="104" opacity="1">100</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(286,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 150.5 0.5 C 153.5 0.5 153.5 0.5 153.5 3.5 L 153.5 44.5 C 153.5 47.5 153.5 47.5 150.5 47.5 L 81.5 47.5 75.5 53.5 69.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="153" height="47"></path><path fill="none" d="M 3.5 0.5 L 150.5 0.5 C 153.5 0.5 153.5 0.5 153.5 3.5 L 153.5 44.5 C 153.5 47.5 153.5 47.5 150.5 47.5 L 81.5 47.5 75.5 53.5 69.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="153" height="47"></path><path fill="none" d="M 3.5 0.5 L 150.5 0.5 C 153.5 0.5 153.5 0.5 153.5 3.5 L 153.5 44.5 C 153.5 47.5 153.5 47.5 150.5 47.5 L 81.5 47.5 75.5 53.5 69.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="153" height="47"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 150.5 0.5 C 153.5 0.5 153.5 0.5 153.5 3.5 L 153.5 44.5 C 153.5 47.5 153.5 47.5 150.5 47.5 L 81.5 47.5 75.5 53.5 69.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#7cb5ec" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"><tspan style="font-size: 10px">2026-02-05</tspan><tspan style="fill:#7cb5ec" x="8" dy="14">●</tspan><tspan dx="0"> Precipitación: </tspan><tspan style="font-weight:bold" dx="0">35.6 mm</tspan></text></g></svg></div></div>
+                    </div>
+
+                    <div class="tab-pane fade active show" id="tabla" role="tabpanel">
+                        <div id="captcha-section" style="display: none;">
+                            <div class="alert alert-info mt-3" role="alert">
+                                Por favor, verifica que no eres un robot para continuar.
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB2uOxvM6ouZ9Hqw" data-theme="light" data-size="normal" data-callback="onCaptchaSuccess">
+                            <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-siy1t_response" value="1.3zK36AZyvsr1BhPwo5caG_B63vGf1SaNuEyAyfrtXYVlYVLqduI0BJXiwNR1EE-rDfVQwLK4NyvlzdeZHh_ddSIYU1RSw71ks3rAbN0VpRbdYJas8upSs_4HVh7LFG0g8gAOToQEZ4uulKPHvpITE_EhXkU8DCHsP12G0Ez3qxH2Zdnll8TdJU2TgOrSUG3bARMGxl45GHZza95q27oLmpDRiUypZOQkIQ8b7yfPVMpKMUTY2EN2Qelz_ZcWlvO-ZI8idfzVbeVubN1U1B4d1Ln63KCFrxYl-ugjHsE9bXMtJdoeWBRjZL_kFy6oD-eGOYS11bz63fMkuYjHlLOsERyEJevQTKaHotpHd1525XlqQqRMBOtD6SzhTl09vV24FPj7qOxuuDHrfIJaHbNl4e9yVzQxrCJxdH2Sm8Axr3La6FYHq_cS5Kzft3zM1z7j.DlwVWIJTuwVlqlFTlvT3yA.a49ea3a2563dc326e8a291ff5b0f86561d902e60a8085f82afcc2deb3dd8fc87"></div></div>
+                        </div>
+
+                        <div id="data-section" style="">
+                            <form name="frmData" id="frmData" method="post" action="__dt_est_tp_0s3n@mH1.php" target="contenedor">
+                                <table width="750" border="0" class="body01" bordercolor="#999999" cellpadding="1" cellspacing="1" align="center">
+                                    <tbody><tr>
+                                        <td colspan="7" height="5"></td>
+                                    </tr>
+                                    <tr aling="center" bgcolor="#003366">
+                                        <td colspan="7" bgcolor="#666666">
+                                            <div align="center">
+                                                <b>
+                                                    <font color="#F4F4F4">Estación
+                                                        : LA LIBERTAD                                                    </font>
+                                                </b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Departamento&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>LORETO</td>
+                                        <td>
+                                            <div align="right">Provincia&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> MAYNAS</td>
+                                        <td>
+                                            <div align="right">Distrito&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> MAZAN</td>
+                                        <td>
+                                            <div align="center">
+                                                Ir : <select name="CBOFiltro" id="CBOFiltro" class="dire" onchange="javascript:submit()"><option value="202102" selected="">2021-02</option>
+<option value="202103" selected="">2021-03</option>
+<option value="202104" selected="">2021-04</option>
+<option value="202105" selected="">2021-05</option>
+<option value="202106" selected="">2021-06</option>
+<option value="202107" selected="">2021-07</option>
+<option value="202108" selected="">2021-08</option>
+<option value="202109" selected="">2021-09</option>
+<option value="202110" selected="">2021-10</option>
+<option value="202111" selected="">2021-11</option>
+<option value="202112" selected="">2021-12</option>
+<option value="202201" selected="">2022-01</option>
+<option value="202202" selected="">2022-02</option>
+<option value="202203" selected="">2022-03</option>
+<option value="202204" selected="">2022-04</option>
+<option value="202205" selected="">2022-05</option>
+<option value="202206" selected="">2022-06</option>
+<option value="202207" selected="">2022-07</option>
+<option value="202208" selected="">2022-08</option>
+<option value="202209" selected="">2022-09</option>
+<option value="202210" selected="">2022-10</option>
+<option value="202211" selected="">2022-11</option>
+<option value="202212" selected="">2022-12</option>
+<option value="202301" selected="">2023-01</option>
+<option value="202302" selected="">2023-02</option>
+<option value="202304" selected="">2023-04</option>
+<option value="202305" selected="">2023-05</option>
+<option value="202306" selected="">2023-06</option>
+<option value="202307" selected="">2023-07</option>
+<option value="202308" selected="">2023-08</option>
+<option value="202309" selected="">2023-09</option>
+<option value="202310" selected="">2023-10</option>
+<option value="202311" selected="">2023-11</option>
+<option value="202312" selected="">2023-12</option>
+<option value="202401" selected="">2024-01</option>
+<option value="202402" selected="">2024-02</option>
+<option value="202403" selected="">2024-03</option>
+<option value="202404" selected="">2024-04</option>
+<option value="202405" selected="">2024-05</option>
+<option value="202406" selected="">2024-06</option>
+<option value="202407" selected="">2024-07</option>
+<option value="202408" selected="">2024-08</option>
+<option value="202409" selected="">2024-09</option>
+<option value="202410" selected="">2024-10</option>
+<option value="202411" selected="">2024-11</option>
+<option value="202412" selected="">2024-12</option>
+<option value="202501" selected="">2025-01</option>
+<option value="202502" selected="">2025-02</option>
+<option value="202503" selected="">2025-03</option>
+<option value="202504" selected="">2025-04</option>
+<option value="202505" selected="">2025-05</option>
+<option value="202506" selected="">2025-06</option>
+<option value="202507" selected="">2025-07</option>
+<option value="202508" selected="">2025-08</option>
+<option value="202509" selected="">2025-09</option>
+<option value="202510" selected="">2025-10</option>
+<option value="202511" selected="">2025-11</option>
+<option value="202512" selected="">2025-12</option>
+<option value="202601" selected="">2026-01</option>
+<option value="202602" selected="">2026-02</option>
+</select>                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Latitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>3°29'10.69'' S </td>
+                                        <td>
+                                            <div align="right">Longitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>73°14'1.47'' W </td>
+                                        <td>
+                                            <div align="right">Altitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>100 msnm.</td>
+
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Tipo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>Convencional - Meteorológica</td>
+                                        <td>
+                                            <div align="right">Codigo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>103014</td>
+                                        <td>
+                                            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="1.3zK36AZyvsr1BhPwo5caG_B63vGf1SaNuEyAyfrtXYVlYVLqduI0BJXiwNR1EE-rDfVQwLK4NyvlzdeZHh_ddSIYU1RSw71ks3rAbN0VpRbdYJas8upSs_4HVh7LFG0g8gAOToQEZ4uulKPHvpITE_EhXkU8DCHsP12G0Ez3qxH2Zdnll8TdJU2TgOrSUG3bARMGxl45GHZza95q27oLmpDRiUypZOQkIQ8b7yfPVMpKMUTY2EN2Qelz_ZcWlvO-ZI8idfzVbeVubN1U1B4d1Ln63KCFrxYl-ugjHsE9bXMtJdoeWBRjZL_kFy6oD-eGOYS11bz63fMkuYjHlLOsERyEJevQTKaHotpHd1525XlqQqRMBOtD6SzhTl09vV24FPj7qOxuuDHrfIJaHbNl4e9yVzQxrCJxdH2Sm8Axr3La6FYHq_cS5Kzft3zM1z7j.DlwVWIJTuwVlqlFTlvT3yA.a49ea3a2563dc326e8a291ff5b0f86561d902e60a8085f82afcc2deb3dd8fc87">
+                                            <input name="estaciones" id="estaciones" type="hidden" value="103014">
+                                            <input name="t_e" id="t_e" type="hidden" value="M">
+                                            <input name="estado" id="estado" type="hidden" value="DIFERIDO">
+                                            <input name="cod_old" id="cod_old" type="hidden" value="150207">
+                                            <input name="cate_esta" id="cate_esta" type="hidden" value="PLU">
+                                            <input name="soloAlt" id="soloAlt" type="hidden" value="100">
+                                        </td>
+
+                                    </tr>
+                                </tbody></table>
+                                <table width="450" align="center">
+                                    <tbody><tr>
+                                        <td>
+                                            <div id="frame">
+                                                <iframe id="contenedor" name="contenedor" width="750" marginwidth="0" height="900" marginheight="0" scrolling="YES" align="center" frameborder="0" cd_frame_id_="5866ccec6a634762346d8c8e09cf182a">
+                                                </iframe>
+                                            </div>
+                                        </td>
+                                    </tr><tr>
+                                </tr></tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script>
+        function onCaptchaSuccess(token) {
+            document.getElementById("cf-turnstile-response").value = token;
+
+            $('#captcha-section').hide();
+            $('#data-section').show();
+
+            document.getElementById("frmData").submit();
+        }
+
+        function loadStationData(token) {
+            var iframe = document.getElementById("contenedor");
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "__dt_est_tp_0s3n@mH1.php");
+
+            var inputToken = document.createElement("input");
+            inputToken.setAttribute("type", "hidden");
+            inputToken.setAttribute("name", "cf-turnstile-response");
+            inputToken.setAttribute("value", token);
+            form.appendChild(inputToken);
+
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "estaciones");
+            input1.setAttribute("value", '103014');
+            form.appendChild(input1);
+
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            input2.setAttribute("name", "CBOFiltro");
+            input2.setAttribute("value", '202602');
+            form.appendChild(input2);
+
+            var input3 = document.createElement("input");
+            input3.setAttribute("type", "text");
+            input3.setAttribute("name", "t_e");
+            input3.setAttribute("value", 'M');
+            form.appendChild(input3);
+
+            var input4 = document.createElement("input");
+            input4.setAttribute("type", "text");
+            input4.setAttribute("name", "estado");
+            input4.setAttribute("value", 'DIFERIDO');
+            form.appendChild(input4);
+
+            var input5 = document.createElement("input");
+            input5.setAttribute("type", "text");
+            input5.setAttribute("name", "cod_old");
+            input5.setAttribute("value", '150207');
+            form.appendChild(input5);
+
+            var input6 = document.createElement("input");
+            input6.setAttribute("type", "text");
+            input6.setAttribute("name", "cod_old");
+            input6.setAttribute("value", 'PLU');
+            form.appendChild(input6);
+
+            var input7 = document.createElement("input");
+            input7.setAttribute("type", "text");
+            input7.setAttribute("name", "alt");
+            input7.setAttribute("value", '100');
+            form.appendChild(input7);
+
+            iframe.contentDocument.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+
+</body></html>

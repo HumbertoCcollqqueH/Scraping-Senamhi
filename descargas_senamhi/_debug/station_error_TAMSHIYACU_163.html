@@ -1,0 +1,369 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SENAMHI</title>
+    <link href="../../../../public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../../../public/lib/dataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="../../../../public/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../../public/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var dat = '';;
+        if (dat == '') {
+            $('#iframeestatipo').css('display', 'none');
+            $('#iframecaptcha').css('display', 'block');
+
+        } else {
+            $('#iframeestatipo').css('display', 'block');
+            $('#iframecaptcha').css('display', 'none');
+        }
+    </script>
+                <script type="text/javascript">
+                const dataPromedioDiario = [8.555, 8.5775, 8.6175, 8.635, 8.655, 8.68, 8.68, 8.68, 8.7025, 8.7225, 8.74, 8.76, 8.7625, 8.7775, 8.795, 8.8175, 8.85, 8.8525, 8.8675, 8.885, 8.9, 8.895, 8.9, 8.91, 8.9025, 8.91, 8.9, 8.8525, 8.8575, 8.8375, null, ];
+                dataPromedioDiario.forEach((value, index) => {
+                    if (value !== null) {
+                        dataPromedioDiario[index] = Math.round(value * 100) / 100;
+                    }
+                });
+
+                $(function() {
+                    $('#container').highcharts({
+                        title: {
+                            text: 'ESTACI\u00D3N: TAMSHIYACU'
+                        },
+                        subtitle: {
+                            text: "Dep.: LORETO Prov.: MAYNAS Dist.: FERNANDO LORES<br>Lat.: 4°0'11.38'' S Long.: 73°9'41.04'' W Alt.: 94 msnm.<br>Tipo: Convencional - Hidrol\u00F3gica<br>C\u00F3digo: 240103"
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            categories: ['2026-02-23','2026-02-24','2026-02-25','2026-02-26','2026-02-27','2026-02-28','2026-03-01','2026-03-02','2026-03-03','2026-03-04','2026-03-05','2026-03-06','2026-03-07','2026-03-08','2026-03-09','2026-03-10','2026-03-11','2026-03-12','2026-03-13','2026-03-14','2026-03-15','2026-03-16','2026-03-17','2026-03-18','2026-03-19','2026-03-20','2026-03-21','2026-03-22','2026-03-23','2026-03-24','2026-03-25',]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Nivel promedio diario (m)'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            valueSuffix: ' m'
+                        },
+                        series: [{
+                            name: 'Nivel promedio diario (m)',
+                            data: dataPromedioDiario
+                        }]
+                    });
+                });
+            </script>
+            <script src="../../../../public/lib/highcharts/highcharts-4.1.7.js"></script>
+</head>
+
+
+<!-- EMPIEZA RENDERIZADO -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="grafico-tab" data-toggle="tab" href="#grafico" role="tab" aria-selected="false">Gráfico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tabla-tab" data-toggle="tab" href="#tabla" role="tab" aria-selected="true">Tabla</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabContent">
+                    <div class="tab-pane fade" id="grafico" role="tabpanel">
+                        <div id="container" style="min-width: 300px; height: 300px; margin: 0 auto;" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1340px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1340" height="300"><desc>Created with Highcharts 4.1.7</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1254" height="76"></rect></clipPath></defs><rect x="0" y="0" width="1340" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 76 177.5 L 1330 177.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 76 139.5 L 1330 139.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 76 100.5 L 1330 100.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 115.5 177 L 115.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 156.5 177 L 156.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 196.5 177 L 196.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 237.5 177 L 237.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 277.5 177 L 277.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 318.5 177 L 318.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 358.5 177 L 358.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 399.5 177 L 399.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 439.5 177 L 439.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 480.5 177 L 480.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 520.5 177 L 520.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 560.5 177 L 560.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 601.5 177 L 601.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 641.5 177 L 641.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 682.5 177 L 682.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 722.5 177 L 722.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 763.5 177 L 763.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 803.5 177 L 803.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 844.5 177 L 844.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 884.5 177 L 884.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 924.5 177 L 924.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 965.5 177 L 965.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1005.5 177 L 1005.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1046.5 177 L 1046.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1086.5 177 L 1086.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1127.5 177 L 1127.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1167.5 177 L 1167.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1208.5 177 L 1208.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1248.5 177 L 1248.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1289.5 177 L 1289.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1330.5 177 L 1330.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 75.5 177 L 75.5 187" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 76 177.5 L 1330 177.5" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><text x="26.640625" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 26.640625 139)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" visibility="visible" y="139"><tspan>Nivel promedio diario (m)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><path fill="rgba(124,181,236,0.25)" d="M 0 0"></path><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(76,101) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 20.225806451612904 66.87999999999992 L 60.67741935483871 63.83999999999999 L 101.12903225806451 57.76000000000012 L 141.58064516129033 54.719999999999914 L 182.03225806451613 53.199999999999946 L 222.48387096774192 48.64000000000004 L 262.93548387096774 48.64000000000004 L 303.3870967741936 48.64000000000004 L 343.8387096774194 45.60000000000011 L 384.2903225806452 42.5599999999999 L 424.741935483871 39.51999999999997 L 465.1935483870968 36.48000000000003 L 505.6451612903226 36.48000000000003 L 546.0967741935484 33.4400000000001 L 586.5483870967743 30.399999999999892 L 627 27.359999999999957 L 667.4516129032259 22.800000000000054 L 707.9032258064517 22.800000000000054 L 748.3548387096774 19.76000000000012 L 788.8064516129033 16.719999999999914 L 829.258064516129 15.199999999999946 L 869.7096774193549 15.199999999999946 L 910.1612903225807 15.199999999999946 L 950.6129032258065 13.679999999999978 L 991.0645161290323 15.199999999999946 L 1031.516129032258 13.679999999999978 L 1071.967741935484 15.199999999999946 L 1112.4193548387098 22.800000000000054 L 1152.8709677419356 21.280000000000086 L 1193.3225806451615 24.32000000000002" stroke="#7cb5ec" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10.225806451612904 66.87999999999992 L 20.225806451612904 66.87999999999992 L 60.67741935483871 63.83999999999999 L 101.12903225806451 57.76000000000012 L 141.58064516129033 54.719999999999914 L 182.03225806451613 53.199999999999946 L 222.48387096774192 48.64000000000004 L 262.93548387096774 48.64000000000004 L 303.3870967741936 48.64000000000004 L 343.8387096774194 45.60000000000011 L 384.2903225806452 42.5599999999999 L 424.741935483871 39.51999999999997 L 465.1935483870968 36.48000000000003 L 505.6451612903226 36.48000000000003 L 546.0967741935484 33.4400000000001 L 586.5483870967743 30.399999999999892 L 627 27.359999999999957 L 667.4516129032259 22.800000000000054 L 707.9032258064517 22.800000000000054 L 748.3548387096774 19.76000000000012 L 788.8064516129033 16.719999999999914 L 829.258064516129 15.199999999999946 L 869.7096774193549 15.199999999999946 L 910.1612903225807 15.199999999999946 L 950.6129032258065 13.679999999999978 L 991.0645161290323 15.199999999999946 L 1031.516129032258 13.679999999999978 L 1071.967741935484 15.199999999999946 L 1112.4193548387098 22.800000000000054 L 1152.8709677419356 21.280000000000086 L 1193.3225806451615 24.32000000000002 L 1203.3225806451615 24.32000000000002" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(76,101) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#7cb5ec" d="M 1193 20.32000000000002 C 1198.328 20.32000000000002 1198.328 28.32000000000002 1193 28.32000000000002 C 1187.672 28.32000000000002 1187.672 20.32000000000002 1193 20.32000000000002 Z"></path><path fill="#7cb5ec" d="M 1152 17.280000000000086 C 1157.328 17.280000000000086 1157.328 25.280000000000086 1152 25.280000000000086 C 1146.672 25.280000000000086 1146.672 17.280000000000086 1152 17.280000000000086 Z"></path><path fill="#7cb5ec" d="M 1112 18.800000000000054 C 1117.328 18.800000000000054 1117.328 26.800000000000054 1112 26.800000000000054 C 1106.672 26.800000000000054 1106.672 18.800000000000054 1112 18.800000000000054 Z"></path><path fill="#7cb5ec" d="M 1071 11.199999999999946 C 1076.328 11.199999999999946 1076.328 19.199999999999946 1071 19.199999999999946 C 1065.672 19.199999999999946 1065.672 11.199999999999946 1071 11.199999999999946 Z"></path><path fill="#7cb5ec" d="M 1031 9.679999999999978 C 1036.328 9.679999999999978 1036.328 17.67999999999998 1031 17.67999999999998 C 1025.672 17.67999999999998 1025.672 9.679999999999978 1031 9.679999999999978 Z"></path><path fill="#7cb5ec" d="M 991 11.199999999999946 C 996.328 11.199999999999946 996.328 19.199999999999946 991 19.199999999999946 C 985.672 19.199999999999946 985.672 11.199999999999946 991 11.199999999999946 Z"></path><path fill="#7cb5ec" d="M 950 9.679999999999978 C 955.328 9.679999999999978 955.328 17.67999999999998 950 17.67999999999998 C 944.672 17.67999999999998 944.672 9.679999999999978 950 9.679999999999978 Z"></path><path fill="#7cb5ec" d="M 910 11.199999999999946 C 915.328 11.199999999999946 915.328 19.199999999999946 910 19.199999999999946 C 904.672 19.199999999999946 904.672 11.199999999999946 910 11.199999999999946 Z"></path><path fill="#7cb5ec" d="M 869 11.199999999999946 C 874.328 11.199999999999946 874.328 19.199999999999946 869 19.199999999999946 C 863.672 19.199999999999946 863.672 11.199999999999946 869 11.199999999999946 Z"></path><path fill="#7cb5ec" d="M 829 11.199999999999946 C 834.328 11.199999999999946 834.328 19.199999999999946 829 19.199999999999946 C 823.672 19.199999999999946 823.672 11.199999999999946 829 11.199999999999946 Z"></path><path fill="#7cb5ec" d="M 788 12.719999999999914 C 793.328 12.719999999999914 793.328 20.719999999999914 788 20.719999999999914 C 782.672 20.719999999999914 782.672 12.719999999999914 788 12.719999999999914 Z"></path><path fill="#7cb5ec" d="M 748 15.760000000000119 C 753.328 15.760000000000119 753.328 23.76000000000012 748 23.76000000000012 C 742.672 23.76000000000012 742.672 15.760000000000119 748 15.760000000000119 Z"></path><path fill="#7cb5ec" d="M 707 18.800000000000054 C 712.328 18.800000000000054 712.328 26.800000000000054 707 26.800000000000054 C 701.672 26.800000000000054 701.672 18.800000000000054 707 18.800000000000054 Z"></path><path fill="#7cb5ec" d="M 667 18.800000000000054 C 672.328 18.800000000000054 672.328 26.800000000000054 667 26.800000000000054 C 661.672 26.800000000000054 661.672 18.800000000000054 667 18.800000000000054 Z"></path><path fill="#7cb5ec" d="M 627 23.359999999999957 C 632.328 23.359999999999957 632.328 31.359999999999957 627 31.359999999999957 C 621.672 31.359999999999957 621.672 23.359999999999957 627 23.359999999999957 Z" stroke-width="1"></path><path fill="#7cb5ec" d="M 586 26.399999999999892 C 591.328 26.399999999999892 591.328 34.39999999999989 586 34.39999999999989 C 580.672 34.39999999999989 580.672 26.399999999999892 586 26.399999999999892 Z"></path><path fill="#7cb5ec" d="M 546 29.440000000000097 C 551.328 29.440000000000097 551.328 37.4400000000001 546 37.4400000000001 C 540.672 37.4400000000001 540.672 29.440000000000097 546 29.440000000000097 Z"></path><path fill="#7cb5ec" d="M 505 32.48000000000003 C 510.328 32.48000000000003 510.328 40.48000000000003 505 40.48000000000003 C 499.672 40.48000000000003 499.672 32.48000000000003 505 32.48000000000003 Z"></path><path fill="#7cb5ec" d="M 465 32.48000000000003 C 470.328 32.48000000000003 470.328 40.48000000000003 465 40.48000000000003 C 459.672 40.48000000000003 459.672 32.48000000000003 465 32.48000000000003 Z"></path><path fill="#7cb5ec" d="M 424 35.51999999999997 C 429.328 35.51999999999997 429.328 43.51999999999997 424 43.51999999999997 C 418.672 43.51999999999997 418.672 35.51999999999997 424 35.51999999999997 Z"></path><path fill="#7cb5ec" d="M 384 38.5599999999999 C 389.328 38.5599999999999 389.328 46.5599999999999 384 46.5599999999999 C 378.672 46.5599999999999 378.672 38.5599999999999 384 38.5599999999999 Z"></path><path fill="#7cb5ec" d="M 343 41.60000000000011 C 348.328 41.60000000000011 348.328 49.60000000000011 343 49.60000000000011 C 337.672 49.60000000000011 337.672 41.60000000000011 343 41.60000000000011 Z"></path><path fill="#7cb5ec" d="M 303 44.64000000000004 C 308.328 44.64000000000004 308.328 52.64000000000004 303 52.64000000000004 C 297.672 52.64000000000004 297.672 44.64000000000004 303 44.64000000000004 Z"></path><path fill="#7cb5ec" d="M 262 44.64000000000004 C 267.328 44.64000000000004 267.328 52.64000000000004 262 52.64000000000004 C 256.672 52.64000000000004 256.672 44.64000000000004 262 44.64000000000004 Z"></path><path fill="#7cb5ec" d="M 222 44.64000000000004 C 227.328 44.64000000000004 227.328 52.64000000000004 222 52.64000000000004 C 216.672 52.64000000000004 216.672 44.64000000000004 222 44.64000000000004 Z"></path><path fill="#7cb5ec" d="M 182 49.199999999999946 C 187.328 49.199999999999946 187.328 57.199999999999946 182 57.199999999999946 C 176.672 57.199999999999946 176.672 49.199999999999946 182 49.199999999999946 Z"></path><path fill="#7cb5ec" d="M 141 50.719999999999914 C 146.328 50.719999999999914 146.328 58.719999999999914 141 58.719999999999914 C 135.672 58.719999999999914 135.672 50.719999999999914 141 50.719999999999914 Z"></path><path fill="#7cb5ec" d="M 101 53.76000000000012 C 106.328 53.76000000000012 106.328 61.76000000000012 101 61.76000000000012 C 95.672 61.76000000000012 95.672 53.76000000000012 101 53.76000000000012 Z"></path><path fill="#7cb5ec" d="M 60 59.83999999999999 C 65.328 59.83999999999999 65.328 67.83999999999999 60 67.83999999999999 C 54.672 67.83999999999999 54.672 59.83999999999999 60 59.83999999999999 Z"></path><path fill="#7cb5ec" d="M 20 62.879999999999924 C 25.328 62.879999999999924 25.328 70.87999999999992 20 70.87999999999992 C 14.672 70.87999999999992 14.672 62.879999999999924 20 62.879999999999924 Z"></path></g></g><text x="670" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1276px;" y="24"><tspan>ESTACIÓN: TAMSHIYACU</tspan></text><text x="670" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1276px;" y="41"><tspan>Dep.: LORETO Prov.: MAYNAS Dist.: FERNANDO LORES</tspan><tspan x="670" dy="14">Lat.: 4°0'11.38'' S Long.: 73°9'41.04'' W Alt.: 94 msnm.</tspan><tspan x="670" dy="14">Tipo: Convencional - Hidrológica</tspan><tspan x="670" dy="14">Código: 240103</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(582,257)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#7cb5ec" stroke-width="2"></path><path fill="#7cb5ec" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.6719999999999997 15 2.6719999999999997 7 8 7 Z"></path><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15"><tspan>Nivel promedio diario (m)</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="98.81853131596358" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 98.81853131596358 193)" y="193" opacity="1"><tspan>2026-02-23</tspan></text><text x="139.2701442191894" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 139.2701442191894 193)" y="193" opacity="1"><tspan>2026-02-24</tspan></text><text x="179.7217571224152" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 179.7217571224152 193)" y="193" opacity="1"><tspan>2026-02-25</tspan></text><text x="220.17337002564102" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 220.17337002564102 193)" y="193" opacity="1"><tspan>2026-02-26</tspan></text><text x="260.62498292886676" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 260.62498292886676 193)" y="193" opacity="1"><tspan>2026-02-27</tspan></text><text x="301.0765958320926" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 301.0765958320926 193)" y="193" opacity="1"><tspan>2026-02-28</tspan></text><text x="341.5282087353184" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 341.5282087353184 193)" y="193" opacity="1"><tspan>2026-03-01</tspan></text><text x="381.9798216385442" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 381.9798216385442 193)" y="193" opacity="1"><tspan>2026-03-02</tspan></text><text x="422.43143454177005" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 422.43143454177005 193)" y="193" opacity="1"><tspan>2026-03-03</tspan></text><text x="462.88304744499584" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 462.88304744499584 193)" y="193" opacity="1"><tspan>2026-03-04</tspan></text><text x="503.33466034822163" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 503.33466034822163 193)" y="193" opacity="1"><tspan>2026-03-05</tspan></text><text x="543.7862732514475" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 543.7862732514475 193)" y="193" opacity="1"><tspan>2026-03-06</tspan></text><text x="584.2378861546732" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 584.2378861546732 193)" y="193" opacity="1"><tspan>2026-03-07</tspan></text><text x="624.6894990578991" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 624.6894990578991 193)" y="193" opacity="1"><tspan>2026-03-08</tspan></text><text x="665.1411119611249" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 665.1411119611249 193)" y="193" opacity="1"><tspan>2026-03-09</tspan></text><text x="705.5927248643507" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 705.5927248643507 193)" y="193" opacity="1"><tspan>2026-03-10</tspan></text><text x="746.0443377675765" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 746.0443377675765 193)" y="193" opacity="1"><tspan>2026-03-11</tspan></text><text x="786.4959506708022" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 786.4959506708022 193)" y="193" opacity="1"><tspan>2026-03-12</tspan></text><text x="826.9475635740281" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 826.9475635740281 193)" y="193" opacity="1"><tspan>2026-03-13</tspan></text><text x="867.399176477254" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 867.399176477254 193)" y="193" opacity="1"><tspan>2026-03-14</tspan></text><text x="907.8507893804797" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 907.8507893804797 193)" y="193" opacity="1"><tspan>2026-03-15</tspan></text><text x="948.3024022837055" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 948.3024022837055 193)" y="193" opacity="1"><tspan>2026-03-16</tspan></text><text x="988.7540151869314" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 988.7540151869314 193)" y="193" opacity="1"><tspan>2026-03-17</tspan></text><text x="1029.2056280901572" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1029.2056280901572 193)" y="193" opacity="1"><tspan>2026-03-18</tspan></text><text x="1069.657240993383" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1069.657240993383 193)" y="193" opacity="1"><tspan>2026-03-19</tspan></text><text x="1110.1088538966087" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1110.1088538966087 193)" y="193" opacity="1"><tspan>2026-03-20</tspan></text><text x="1150.5604667998346" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1150.5604667998346 193)" y="193" opacity="1"><tspan>2026-03-21</tspan></text><text x="1191.0120797030604" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1191.0120797030604 193)" y="193" opacity="1"><tspan>2026-03-22</tspan></text><text x="1231.4636926062863" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1231.4636926062863 193)" y="193" opacity="1"><tspan>2026-03-23</tspan></text><text x="1271.9153055095119" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1271.9153055095119 193)" y="193" opacity="1"><tspan>2026-03-24</tspan></text><text x="1312.3669184127377" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:300px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1312.3669184127377 193)" y="193" opacity="1"><tspan>2026-03-25</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="61" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="104" opacity="1">9</text><text x="61" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="180" opacity="1">8.5</text><text x="61" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:432px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="142" opacity="1">8.75</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(598,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 207.5 0.5 C 210.5 0.5 210.5 0.5 210.5 3.5 L 210.5 44.5 C 210.5 47.5 210.5 47.5 207.5 47.5 L 110.5 47.5 104.5 53.5 98.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="210" height="47"></path><path fill="none" d="M 3.5 0.5 L 207.5 0.5 C 210.5 0.5 210.5 0.5 210.5 3.5 L 210.5 44.5 C 210.5 47.5 210.5 47.5 207.5 47.5 L 110.5 47.5 104.5 53.5 98.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="210" height="47"></path><path fill="none" d="M 3.5 0.5 L 207.5 0.5 C 210.5 0.5 210.5 0.5 210.5 3.5 L 210.5 44.5 C 210.5 47.5 210.5 47.5 207.5 47.5 L 110.5 47.5 104.5 53.5 98.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="210" height="47"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 207.5 0.5 C 210.5 0.5 210.5 0.5 210.5 3.5 L 210.5 44.5 C 210.5 47.5 210.5 47.5 207.5 47.5 L 110.5 47.5 104.5 53.5 98.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#7cb5ec" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"><tspan style="font-size: 10px">2026-03-10</tspan><tspan style="fill:#7cb5ec" x="8" dy="14">●</tspan><tspan dx="0"> Nivel promedio diario (m): </tspan><tspan style="font-weight:bold" dx="0">8.82 m</tspan></text></g></svg></div></div>
+                    </div>
+
+                    <div class="tab-pane fade active show" id="tabla" role="tabpanel">
+                        <div id="captcha-section" style="display: none;">
+                            <div class="alert alert-info mt-3" role="alert">
+                                Por favor, verifica que no eres un robot para continuar.
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB2uOxvM6ouZ9Hqw" data-theme="light" data-size="normal" data-callback="onCaptchaSuccess">
+                            <div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-cxv3q_response" value="1.GIPKLcyLQEfutTyxmVQiToYpSlQca27n0cV4rEShboXiGyc7VWE9sY-VKHELb4_LkFuQ9q-CvrNhrHvUgWGYIZgBcecrJ1dJmHVA1RXlf6D18-1ngtNu89qiGwMspgHMlNR-odxRl72Q3EgOhCdOSVZUnQBMoeaVbcMnYYyISkA7Od8PyuI5ZxZLcKQlLfrUcwvAAXKR83LPWSR1N4xZtiJV-fvogdFbRvIvR-cAG55PLm43htGRbuucHHebCuWmnPoU8NmtTmPHDE2YR-Fm-aAHA92kqsfFuERGOtBfvmzqOiKCF9tFu5T5QBkR1GEpGedQeXC8FOIswTeKAR_BCIi3m3NMu7FxGKi-_P_5ySAOFAqIzbdqA_C_LONCB0ZVg3UT4278F3loXeo7iCPr6t_EWlHEjGrhYAbPi1ctYjI.j30OdcTAHH9w8oWtT-VQLQ.614a1bd5b434c74d4ccdf04229bd0d8b8bceb0f0f6a08b657613ac67647be457"></div></div>
+                        </div>
+
+                        <div id="data-section" style="">
+                            <form name="frmData" id="frmData" method="post" action="__dt_est_tp_0s3n@mH1.php" target="contenedor">
+                                <table width="750" border="0" class="body01" bordercolor="#999999" cellpadding="1" cellspacing="1" align="center">
+                                    <tbody><tr>
+                                        <td colspan="7" height="5"></td>
+                                    </tr>
+                                    <tr aling="center" bgcolor="#003366">
+                                        <td colspan="7" bgcolor="#666666">
+                                            <div align="center">
+                                                <b>
+                                                    <font color="#F4F4F4">Estación
+                                                        : TAMSHIYACU                                                    </font>
+                                                </b>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Departamento&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>LORETO</td>
+                                        <td>
+                                            <div align="right">Provincia&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> MAYNAS</td>
+                                        <td>
+                                            <div align="right">Distrito&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td> FERNANDO LORES</td>
+                                        <td>
+                                            <div align="center">
+                                                Ir : <select name="CBOFiltro" id="CBOFiltro" class="dire" onchange="javascript:submit()"><option value="201701" selected="">2017-01</option>
+<option value="201702" selected="">2017-02</option>
+<option value="201703" selected="">2017-03</option>
+<option value="201704" selected="">2017-04</option>
+<option value="201705" selected="">2017-05</option>
+<option value="201706" selected="">2017-06</option>
+<option value="201707" selected="">2017-07</option>
+<option value="201708" selected="">2017-08</option>
+<option value="201709" selected="">2017-09</option>
+<option value="201710" selected="">2017-10</option>
+<option value="201711" selected="">2017-11</option>
+<option value="201712" selected="">2017-12</option>
+<option value="201801" selected="">2018-01</option>
+<option value="201802" selected="">2018-02</option>
+<option value="201803" selected="">2018-03</option>
+<option value="201804" selected="">2018-04</option>
+<option value="201805" selected="">2018-05</option>
+<option value="201806" selected="">2018-06</option>
+<option value="201807" selected="">2018-07</option>
+<option value="201808" selected="">2018-08</option>
+<option value="201809" selected="">2018-09</option>
+<option value="201810" selected="">2018-10</option>
+<option value="201811" selected="">2018-11</option>
+<option value="201812" selected="">2018-12</option>
+<option value="201901" selected="">2019-01</option>
+<option value="201902" selected="">2019-02</option>
+<option value="201903" selected="">2019-03</option>
+<option value="201904" selected="">2019-04</option>
+<option value="201905" selected="">2019-05</option>
+<option value="201906" selected="">2019-06</option>
+<option value="201907" selected="">2019-07</option>
+<option value="201908" selected="">2019-08</option>
+<option value="201909" selected="">2019-09</option>
+<option value="201910" selected="">2019-10</option>
+<option value="201911" selected="">2019-11</option>
+<option value="201912" selected="">2019-12</option>
+<option value="202001" selected="">2020-01</option>
+<option value="202002" selected="">2020-02</option>
+<option value="202003" selected="">2020-03</option>
+<option value="202004" selected="">2020-04</option>
+<option value="202005" selected="">2020-05</option>
+<option value="202006" selected="">2020-06</option>
+<option value="202007" selected="">2020-07</option>
+<option value="202008" selected="">2020-08</option>
+<option value="202009" selected="">2020-09</option>
+<option value="202010" selected="">2020-10</option>
+<option value="202011" selected="">2020-11</option>
+<option value="202012" selected="">2020-12</option>
+<option value="202101" selected="">2021-01</option>
+<option value="202102" selected="">2021-02</option>
+<option value="202103" selected="">2021-03</option>
+<option value="202104" selected="">2021-04</option>
+<option value="202105" selected="">2021-05</option>
+<option value="202106" selected="">2021-06</option>
+<option value="202107" selected="">2021-07</option>
+<option value="202108" selected="">2021-08</option>
+<option value="202109" selected="">2021-09</option>
+<option value="202110" selected="">2021-10</option>
+<option value="202111" selected="">2021-11</option>
+<option value="202112" selected="">2021-12</option>
+<option value="202201" selected="">2022-01</option>
+<option value="202202" selected="">2022-02</option>
+<option value="202203" selected="">2022-03</option>
+<option value="202204" selected="">2022-04</option>
+<option value="202205" selected="">2022-05</option>
+<option value="202206" selected="">2022-06</option>
+<option value="202207" selected="">2022-07</option>
+<option value="202208" selected="">2022-08</option>
+<option value="202209" selected="">2022-09</option>
+<option value="202210" selected="">2022-10</option>
+<option value="202211" selected="">2022-11</option>
+<option value="202212" selected="">2022-12</option>
+<option value="202301" selected="">2023-01</option>
+<option value="202302" selected="">2023-02</option>
+<option value="202303" selected="">2023-03</option>
+<option value="202304" selected="">2023-04</option>
+<option value="202305" selected="">2023-05</option>
+<option value="202306" selected="">2023-06</option>
+<option value="202307" selected="">2023-07</option>
+<option value="202308" selected="">2023-08</option>
+<option value="202309" selected="">2023-09</option>
+<option value="202310" selected="">2023-10</option>
+<option value="202311" selected="">2023-11</option>
+<option value="202312" selected="">2023-12</option>
+<option value="202401" selected="">2024-01</option>
+<option value="202402" selected="">2024-02</option>
+<option value="202403" selected="">2024-03</option>
+<option value="202404" selected="">2024-04</option>
+<option value="202405" selected="">2024-05</option>
+<option value="202406" selected="">2024-06</option>
+<option value="202407" selected="">2024-07</option>
+<option value="202408" selected="">2024-08</option>
+<option value="202409" selected="">2024-09</option>
+<option value="202410" selected="">2024-10</option>
+<option value="202411" selected="">2024-11</option>
+<option value="202412" selected="">2024-12</option>
+<option value="202501" selected="">2025-01</option>
+<option value="202502" selected="">2025-02</option>
+<option value="202503" selected="">2025-03</option>
+<option value="202504" selected="">2025-04</option>
+<option value="202505" selected="">2025-05</option>
+<option value="202506" selected="">2025-06</option>
+<option value="202507" selected="">2025-07</option>
+<option value="202508" selected="">2025-08</option>
+<option value="202509" selected="">2025-09</option>
+<option value="202510" selected="">2025-10</option>
+<option value="202511" selected="">2025-11</option>
+<option value="202512" selected="">2025-12</option>
+<option value="202601" selected="">2026-01</option>
+<option value="202602" selected="">2026-02</option>
+<option value="202603" selected="">2026-03</option>
+</select>                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Latitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>4°0'11.38'' S </td>
+                                        <td>
+                                            <div align="right">Longitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>73°9'41.04'' W </td>
+                                        <td>
+                                            <div align="right">Altitud&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>94 msnm.</td>
+
+                                    </tr>
+                                    <tr aling="center">
+                                        <td>
+                                            <div align="right">Tipo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>Convencional - Hidrológica</td>
+                                        <td>
+                                            <div align="right">Codigo&nbsp;:&nbsp;</div>
+                                        </td>
+                                        <td>240103</td>
+                                        <td>
+                                            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="1.GIPKLcyLQEfutTyxmVQiToYpSlQca27n0cV4rEShboXiGyc7VWE9sY-VKHELb4_LkFuQ9q-CvrNhrHvUgWGYIZgBcecrJ1dJmHVA1RXlf6D18-1ngtNu89qiGwMspgHMlNR-odxRl72Q3EgOhCdOSVZUnQBMoeaVbcMnYYyISkA7Od8PyuI5ZxZLcKQlLfrUcwvAAXKR83LPWSR1N4xZtiJV-fvogdFbRvIvR-cAG55PLm43htGRbuucHHebCuWmnPoU8NmtTmPHDE2YR-Fm-aAHA92kqsfFuERGOtBfvmzqOiKCF9tFu5T5QBkR1GEpGedQeXC8FOIswTeKAR_BCIi3m3NMu7FxGKi-_P_5ySAOFAqIzbdqA_C_LONCB0ZVg3UT4278F3loXeo7iCPr6t_EWlHEjGrhYAbPi1ctYjI.j30OdcTAHH9w8oWtT-VQLQ.614a1bd5b434c74d4ccdf04229bd0d8b8bceb0f0f6a08b657613ac67647be457">
+                                            <input name="estaciones" id="estaciones" type="hidden" value="240103">
+                                            <input name="t_e" id="t_e" type="hidden" value="H">
+                                            <input name="estado" id="estado" type="hidden" value="REAL">
+                                            <input name="cod_old" id="cod_old" type="hidden" value="">
+                                            <input name="cate_esta" id="cate_esta" type="hidden" value="HLM">
+                                            <input name="soloAlt" id="soloAlt" type="hidden" value="94">
+                                        </td>
+
+                                    </tr>
+                                </tbody></table>
+                                <table width="450" align="center">
+                                    <tbody><tr>
+                                        <td>
+                                            <div id="frame">
+                                                <iframe id="contenedor" name="contenedor" width="750" marginwidth="0" height="900" marginheight="0" scrolling="YES" align="center" frameborder="0" cd_frame_id_="046b87074fb73da448384d86830dc924">
+                                                </iframe>
+                                            </div>
+                                        </td>
+                                    </tr><tr>
+                                </tr></tbody></table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script>
+        function onCaptchaSuccess(token) {
+            document.getElementById("cf-turnstile-response").value = token;
+
+            $('#captcha-section').hide();
+            $('#data-section').show();
+
+            document.getElementById("frmData").submit();
+        }
+
+        function loadStationData(token) {
+            var iframe = document.getElementById("contenedor");
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "__dt_est_tp_0s3n@mH1.php");
+
+            var inputToken = document.createElement("input");
+            inputToken.setAttribute("type", "hidden");
+            inputToken.setAttribute("name", "cf-turnstile-response");
+            inputToken.setAttribute("value", token);
+            form.appendChild(inputToken);
+
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "estaciones");
+            input1.setAttribute("value", '240103');
+            form.appendChild(input1);
+
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            input2.setAttribute("name", "CBOFiltro");
+            input2.setAttribute("value", '202603');
+            form.appendChild(input2);
+
+            var input3 = document.createElement("input");
+            input3.setAttribute("type", "text");
+            input3.setAttribute("name", "t_e");
+            input3.setAttribute("value", 'H');
+            form.appendChild(input3);
+
+            var input4 = document.createElement("input");
+            input4.setAttribute("type", "text");
+            input4.setAttribute("name", "estado");
+            input4.setAttribute("value", 'REAL');
+            form.appendChild(input4);
+
+            var input5 = document.createElement("input");
+            input5.setAttribute("type", "text");
+            input5.setAttribute("name", "cod_old");
+            input5.setAttribute("value", '');
+            form.appendChild(input5);
+
+            var input6 = document.createElement("input");
+            input6.setAttribute("type", "text");
+            input6.setAttribute("name", "cod_old");
+            input6.setAttribute("value", 'HLM');
+            form.appendChild(input6);
+
+            var input7 = document.createElement("input");
+            input7.setAttribute("type", "text");
+            input7.setAttribute("name", "alt");
+            input7.setAttribute("value", '94');
+            form.appendChild(input7);
+
+            iframe.contentDocument.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+
+</body></html>
